@@ -1,0 +1,53 @@
+{
+  "name": "@kopytko/utils",
+  "version": "1.0.0",
+  "description": "Collection of utility functions for brightscript's applications and utility javascript's scripts for building package purposes",
+  "keywords": [
+    "brightscript",
+    "kopytko",
+    "roku",
+    "ropm"
+  ],
+  "files": [
+    "src",
+    "!**/_tests"
+  ],
+  "ropm": {
+    "noprefix": [
+      "@kopytko/unit-testing-framework"
+    ],
+    "packageRootDir": "src"
+  },
+  "scripts": {
+    "lint": "eslint --ext .brs src/",
+    "test": "node node_modules/@kopytko/unit-testing-framework/scripts/test.js"
+  },
+  "devDependencies": {
+    "@kopytko/eslint-plugin": "github:getndazn/kopytko-eslint-plugin",
+    "@kopytko/packager": "github:getndazn/kopytko-packager",
+    "@kopytko/unit-testing-framework": "github:getndazn/kopytko-unit-testing-framework",
+    "eslint": "5.6.0",
+    "eslint-plugin-roku": "^1.5.3"
+  },
+  "contributors": [
+    {
+      "name": "Paweł Hertman",
+      "email": "pawel@hertman.eu",
+      "url": "http://hertman.eu/"
+    },
+    {
+      "name": "Radosław Zambrowski",
+      "email": "radekzam@gmail.com"
+    },
+    {
+      "name": "Tomasz Rejment",
+      "email": "tomasz.rejment@dazn.com"
+    },
+    {
+      "name": "Błażej Chełkowski",
+      "email": "blazej.chelkowski@dazn.com"
+    }
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}
