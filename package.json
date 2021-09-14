@@ -6,16 +6,13 @@
     "brightscript",
     "kopytko",
     "roku",
-    "ropm"
+    "kopytko-module"
   ],
   "files": [
     "src",
     "!**/_tests"
   ],
   "ropm": {
-    "noprefix": [
-      "@kopytko/unit-testing-framework"
-    ],
     "packageRootDir": "src"
   },
   "scripts": {
@@ -30,24 +27,13 @@
     "eslint-plugin-roku": "^1.5.3"
   },
   "contributors": [
-    {
-      "name": "Paweł Hertman",
-      "email": "pawel@hertman.eu",
-      "url": "http://hertman.eu/"
-    },
-    {
-      "name": "Radosław Zambrowski",
-      "email": "radekzam@gmail.com"
-    },
-    {
-      "name": "Tomasz Rejment",
-      "email": "tomasz.rejment@dazn.com"
-    },
-    {
-      "name": "Błażej Chełkowski",
-      "email": "blazej.chelkowski@dazn.com"
-    }
+    "Paweł Hertman <pawel@hertman.eu>",
+    "Tomasz Rejment <trejment@gmail.com>",
+    "Błażej Chełkowski <blazej.chelkowski@outlook.com>",
+    "Radosław Zambrowski <radekzam@gmail.com>",
+    "Mauricio Dziedzinski <d.mauriciofarias@gmail.com>"
   ],
-  "license": "UNLICENSED",
-  "private": true
+  "license": "MIT",
+  "private": true,
+  "kopytkoModuleDir": "src/"
 }
