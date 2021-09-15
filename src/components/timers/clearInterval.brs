@@ -1,6 +1,6 @@
 ' Stops setInterval callback calls.
-' @param {String} intervalId - The ID of the timer returned by setInterval.
-sub clearInterval(intervalId as String)
+' @param {String|Invalid} intervalId - The ID of the timer returned by setInterval.
+sub clearInterval(intervalId as Dynamic)
   if (intervalId = Invalid)
     return
   end if
