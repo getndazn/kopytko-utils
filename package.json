@@ -10,11 +10,9 @@
   ],
   "files": [
     "src",
+    "!**/_mocks",
     "!**/_tests"
   ],
-  "ropm": {
-    "packageRootDir": "src"
-  },
   "scripts": {
     "lint": "eslint --ext .brs src/",
     "test": "node node_modules/@kopytko/unit-testing-framework/scripts/test.js"
