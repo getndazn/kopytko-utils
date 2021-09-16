@@ -4,11 +4,11 @@
 '   return m.base + arg1 + arg2 + arg3 + arg4
 ' end function
 ' funcionCall(adder, [1, 2, 3, 4], { base: 1 })
-' @param {Function} func
+' @param {Function|Invalid} func
 ' @param {Dynamic[]} [args=[]]
 ' @param {Object} [context=Invalid]
 ' @returns {Dynamic}
-function functionCall(func as Function, args = [] as Object, context = Invalid as Object) as Dynamic
+function functionCall(func as Dynamic, args = [] as Object, context = Invalid as Object) as Dynamic
   if (func = Invalid)
     return Invalid
   end if
