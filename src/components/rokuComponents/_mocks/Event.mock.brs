@@ -10,7 +10,7 @@
 function Event(eventScheme as Object) as Object
   return Mock({
     testComponent: m,
-    constructorParams: {
+    properties: {
       eventScheme: eventScheme,
     },
     name: "Event",
@@ -18,20 +18,20 @@ function Event(eventScheme as Object) as Object
       getData: function () as Dynamic
         m.getDataMock("getData")
 
-        return m.constructorParams.eventScheme.data
+        return m.eventScheme.data
       end function,
       getField: function () as String
         m.getFieldMock("getField")
 
-        return m.constructorParams.eventScheme.field
+        return m.eventScheme.field
       end function,
       getNode: function () as String
         m.getNodeMock("getNode")
 
-        if (m.constructorParams.eventScheme.nodeId <> Invalid)
-          return m.constructorParams.eventScheme.nodeId
-        else if (m.constructorParams.eventscheme.node <> Invalid AND m.constructorParams.eventscheme.node.id <> Invalid)
-          return m.constructorParams.eventscheme.node.id
+        if (m.eventScheme.nodeId <> Invalid)
+          return m.eventScheme.nodeId
+        else if (m.eventScheme.node <> Invalid AND m.eventScheme.node.id <> Invalid)
+          return m.eventScheme.node.id
         end if
 
         return ""
@@ -39,7 +39,7 @@ function Event(eventScheme as Object) as Object
       getRoSGNode: function () as Boolean
         m.getRoSGNodeMock("getRoSGNode")
 
-        return m.constructorParams.eventScheme.node
+        return m.eventScheme.node
       end function,
     },
   })

@@ -10,7 +10,6 @@
   ],
   "files": [
     "src",
-    "!**/_mocks",
     "!**/_tests"
   ],
   "scripts": {
