@@ -1,4 +1,4 @@
-' Calls given function with given number of arguments in an specific context. Compare apply in JavaScript.
+' Calls given function with given number of arguments in a specific context. Compare apply in JavaScript.
 ' @example
 ' function adder(arg1, arg2, arg3, arg4) as Integer
 '   return m.base + arg1 + arg2 + arg3 + arg4
