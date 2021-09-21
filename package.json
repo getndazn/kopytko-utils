@@ -1,7 +1,7 @@
 {
   "name": "@kopytko/utils",
   "version": "1.0.0",
-  "description": "Collection of utility functions for brightscript's applications and utility javascript's scripts for building package purposes",
+  "description": "A modern collection of utility functions for brightscript applications",
   "keywords": [
     "brightscript",
     "kopytko",
