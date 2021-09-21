@@ -19,7 +19,7 @@ Your Kopytko Packager-configured app will automatically add Utils code into the 
 
 - lodash library inspired Array, Math and Object utils
 - JS-based Promise object and related functions
-- JS-based Interval and Timeout functions
+- JS-based interval and timeout functions
 - JS's `apply`-based `functionCall` function to run any function in a specific context
 - Basic ReactiveX-inspired implementation of observables
 - SceneGraph's Node utils
