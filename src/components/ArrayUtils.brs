@@ -7,6 +7,9 @@ function ArrayUtils() as Object
   prototype = {}
 
   ' Looks for an item, removes it from the source array and returns that item. It mutates the array. Returns Invalid when item is not found.
+  ' @example
+  ' ArrayUtils().pick([{ x: "a" }, { x: "b" }], function (item, desiredValue) : return (item.x = desiredValue) : end function), "b")
+  ' ' => { x: "b" }
   ' @param {Dynamic[]} arrayToSearch
   ' @param {Function|AssociativeArray} predicate
   ' @param {Dynamic} [scopedData=Invalid] - Any data that is passed to predicate to deal with BrightScript variable scope.
@@ -27,7 +30,7 @@ function ArrayUtils() as Object
   ' @param {Dynamic[]} arrayToSearch
   ' @param {Function|AssociativeArray} predicate
   ' @param {Dynamic} [scopedData=Invalid] - Any data that is passed to predicate to deal with BrightScript variable scope.
-  ' @returns {Dynamic} - Returns removed item. Invalid when not found.
+  ' @returns {Dynamic} - Returns the found item. Invalid when not found.
   prototype.find = function (arrayToSearch as Object, predicate as Dynamic, scopedData = Invalid as Dynamic) as Dynamic
     index = m.findIndex(arrayToSearch, predicate, scopedData)
     if (index >= 0)
