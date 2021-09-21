@@ -21,7 +21,7 @@ Your Kopytko Packager-configured app will automatically add Utils code into the 
 - JS-based Promise object and related functions
 - JS-based interval and timeout functions
 - JS's `apply`-based `functionCall` function to run any function in a specific context
-- Basic ReactiveX-inspired implementation of observables
+- Basic ReactiveX inspired implementation of observables
 - SceneGraph's Node utils
 - Animator - an easier to use facade over SceneGraph's animation mechanisms
 - facades of some BrightScript's Components and their mocks ready to use with [Kopytko Unit Testing Framework](https://github.com/getndazn/kopytko-unit-testing-framework)
