@@ -17,8 +17,8 @@
     "test": "node node_modules/@kopytko/unit-testing-framework/scripts/test.js"
   },
   "devDependencies": {
+    "@dazn/kopytko-packager": "^1.0.0",
     "@kopytko/eslint-plugin": "github:getndazn/kopytko-eslint-plugin",
-    "@kopytko/packager": "github:getndazn/kopytko-packager",
     "@kopytko/unit-testing-framework": "github:getndazn/kopytko-unit-testing-framework",
     "eslint": "5.6.0",
     "eslint-plugin-roku": "^1.5.3"
