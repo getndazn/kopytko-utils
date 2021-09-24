@@ -1,5 +1,5 @@
-' @import /components/ternary.brs
 ' @import /components/getType.brs
+' @import /components/ternary.brs
 
 ' Object utils.
 ' @class

@@ -1,9 +1,9 @@
-' @import /components/rokuComponents/Animation.brs
-' @import /components/rokuComponents/FloatFieldInterpolator.brs
-' @import /components/rokuComponents/Vector2DFieldInterpolator.brs
 ' @import /components/getProperty.brs
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseReject.brs
+' @import /components/rokuComponents/Animation.brs
+' @import /components/rokuComponents/FloatFieldInterpolator.brs
+' @import /components/rokuComponents/Vector2DFieldInterpolator.brs
 
 ' The base animator class. It supports starting/stopping various animations supported by FloatFieldInterpolator or Vector2DFieldInterpolator.
 ' @class

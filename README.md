@@ -11,7 +11,7 @@ However, there are some atomic, independent functions (e.g. getProperty, getType
 
 ## Installation
 
-Using npm: `npm i @kopytko/utils`
+Using npm: `npm i @dazn/kopytko-utils`
 
 Your Kopytko Packager-configured app will automatically add Utils code into the package.
 

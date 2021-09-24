@@ -1,4 +1,4 @@
-' @import /components/_mocks/Mock.brs from @kopytko/unit-testing-framework
+' @import /components/_mocks/Mock.brs from @dazn/kopytko-unit-testing-framework
 
 ' Use this to create an event object that should be passed as parameter when directly calling event callbacks.
 ' @param {Object} eventScheme

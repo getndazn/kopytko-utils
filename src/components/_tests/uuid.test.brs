@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 function TestSuite__uuid() as Object
   ts = KopytkoTestSuite()
   ts.name = "uuid"

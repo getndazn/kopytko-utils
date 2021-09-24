@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "lint": "eslint --ext .brs src/",
-    "test": "node node_modules/@kopytko/unit-testing-framework/scripts/test.js"
+    "test": "node node_modules/@dazn/kopytko-unit-testing-framework/scripts/test.js"
   },
   "devDependencies": {
     "@dazn/eslint-plugin-kopytko": "^1.0.0",

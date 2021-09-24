@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/rokuComponents/_mocks/Event.mock.brs
 ' @mock /components/rokuComponents/Animation.brs
 ' @mock /components/rokuComponents/FloatFieldInterpolator.brs

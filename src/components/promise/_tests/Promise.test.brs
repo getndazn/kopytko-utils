@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 function TestSuite__Promise() as Object
   ts = KopytkoTestSuite()
   ts.name = "Promise"

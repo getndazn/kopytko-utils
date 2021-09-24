@@ -1,6 +1,6 @@
+' @import /components/ArrayUtils.brs
 ' @import /components/reactiveX/RxObservable.brs
 ' @import /components/reactiveX/RxSubscription.brs
-' @import /components/ArrayUtils.brs
 
 ' Based on https://rxjs-dev.firebaseapp.com/api/index/class/Subject
 ' Every Subject is an Observable and an Observer. You can subscribe to a Subject, and you can call next to feed values
