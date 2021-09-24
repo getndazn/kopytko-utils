@@ -1,12 +1,19 @@
 {
-  "name": "@kopytko/utils",
-  "version": "1.0.0",
+  "name": "@dazn/kopytko-utils",
+  "version": "0.0.1",
   "description": "A modern collection of utility functions for brightscript applications",
   "keywords": [
     "brightscript",
     "kopytko",
     "roku",
     "kopytko-module"
+  ],
+  "contributors": [
+    "Paweł Hertman <pawel@hertman.eu>",
+    "Tomasz Rejment <trejment@gmail.com>",
+    "Błażej Chełkowski <blazej.chelkowski@outlook.com>",
+    "Radosław Zambrowski <radekzam@gmail.com>",
+    "Mauricio Dziedzinski <d.mauriciofarias@gmail.com>"
   ],
   "files": [
     "src",
@@ -17,20 +24,32 @@
     "test": "node node_modules/@kopytko/unit-testing-framework/scripts/test.js"
   },
   "devDependencies": {
-    "@kopytko/eslint-plugin": "github:getndazn/kopytko-eslint-plugin",
-    "@kopytko/packager": "github:getndazn/kopytko-packager",
-    "@kopytko/unit-testing-framework": "github:getndazn/kopytko-unit-testing-framework",
+    "@dazn/eslint-plugin-kopytko": "^1.0.0",
+    "@dazn/kopytko-packager": "^1.0.0",
+    "@dazn/kopytko-unit-testing-framework": "^1.0.0",
     "eslint": "5.6.0",
     "eslint-plugin-roku": "^1.5.3"
   },
-  "contributors": [
-    "Paweł Hertman <pawel@hertman.eu>",
-    "Tomasz Rejment <trejment@gmail.com>",
-    "Błażej Chełkowski <blazej.chelkowski@outlook.com>",
-    "Radosław Zambrowski <radekzam@gmail.com>",
-    "Mauricio Dziedzinski <d.mauriciofarias@gmail.com>"
-  ],
   "license": "MIT",
-  "private": true,
-  "kopytkoModuleDir": "src/"
+  "kopytkoModuleDir": "src/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getndazn/kopytko-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/getndazn/kopytko-utils/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
 }
