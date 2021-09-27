@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/getndazn/kopytko-utils/compare/v1.1.0...v1.1.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* Fixed wrong import ([#6](https://github.com/getndazn/kopytko-utils/issues/6)) ([09d1d21](https://github.com/getndazn/kopytko-utils/commit/09d1d21e4b50917a1c302b374bf8f49f9b446220))
+
 # [1.1.0](https://github.com/getndazn/kopytko-utils/compare/v1.0.0...v1.1.0) (2021-09-27)
 
 

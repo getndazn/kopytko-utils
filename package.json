@@ -1,6 +1,6 @@
 {
   "name": "@dazn/kopytko-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A modern collection of utility functions for brightscript applications",
   "keywords": [
     "brightscript",
