@@ -1,4 +1,4 @@
-' @import /components/_mocks/Mock.brs from @kopytko/unit-testing-framework
+' @import /components/_mocks/Mock.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/createNode.brs
 ' @import /components/getProperty.brs
 ' @import /components/getType.brs

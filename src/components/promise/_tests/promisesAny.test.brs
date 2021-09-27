@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseReject.brs
 ' @import /components/promise/PromiseResolve.brs

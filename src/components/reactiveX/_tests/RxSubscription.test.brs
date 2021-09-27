@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/reactiveX/RxSubscriber.brs
 function TestSuite__RxSubscription() as Object
   ts = KopytkoTestSuite()

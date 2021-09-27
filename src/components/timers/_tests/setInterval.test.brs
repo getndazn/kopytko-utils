@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/rokuComponents/_mocks/Event.mock.brs
 ' @import /components/timers/clearInterval.brs
 function TestSuite__setInterval() as Object

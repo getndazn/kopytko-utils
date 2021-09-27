@@ -1,6 +1,6 @@
+' @import /components/getType.brs
 ' @import /components/reactiveX/RxSubscriber.brs
 ' @import /components/reactiveX/RxSubscription.brs
-' @import /components/getType.brs
 
 ' The callback invoked when subscription to RxObervable is attached.
 ' @callback rxSubscribe

@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/timers/setTimeout.brs
 function TestSuite__clearTimeout() as Object
   ts = KopytkoTestSuite()

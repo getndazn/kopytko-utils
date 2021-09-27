@@ -1,4 +1,4 @@
-' @import /components/KopytkoTestSuite.brs from @kopytko/unit-testing-framework
+' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/reactiveX/RxSubject.brs
 function TestSuite__rxCombineLatest() as Object
   ts = KopytkoTestSuite()
