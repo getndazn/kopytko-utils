@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/getndazn/kopytko-utils/compare/v1.0.0...v1.1.0) (2021-09-27)
+
+
+### Features
+
+* Added Http Agent wrapper ([#5](https://github.com/getndazn/kopytko-utils/issues/5)) ([e5ed689](https://github.com/getndazn/kopytko-utils/commit/e5ed689904beb793e5fed156924200dc1a5db5c0))
+
 # 1.0.0 (2021-09-27)
 
 
