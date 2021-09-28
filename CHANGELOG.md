@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/getndazn/kopytko-utils/compare/v1.1.2...v2.0.0) (2021-09-28)
+
+
+### Features
+
+* Added buildUrl ([#9](https://github.com/getndazn/kopytko-utils/issues/9)) ([10c13f5](https://github.com/getndazn/kopytko-utils/commit/10c13f54d1a474d0f7dc6874e1655c15f9af7874))
+
+
+### BREAKING CHANGES
+
+* Removed GlobalNode util
+
 ## [1.1.2](https://github.com/getndazn/kopytko-utils/compare/v1.1.1...v1.1.2) (2021-09-28)
 
 
