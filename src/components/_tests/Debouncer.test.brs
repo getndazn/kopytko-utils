@@ -1,4 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+' @mock /components/rokuComponents/GlobalNode.brs
 ' @mock /components/timers/clearTimeout.brs
 ' @mock /components/timers/setTimeout.brs
 function TestSuite__Debouncer() as Object
