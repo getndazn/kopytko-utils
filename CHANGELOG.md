@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/getndazn/kopytko-utils/compare/v1.1.1...v1.1.2) (2021-09-28)
+
+
+### Reverts
+
+* Revert "feat!: Removed GlobalNode util, added buildUrl (#7)" (#8) ([19a6a51](https://github.com/getndazn/kopytko-utils/commit/19a6a51446b55eaa41ae1feea4649a09747bec90)), closes [#7](https://github.com/getndazn/kopytko-utils/issues/7) [#8](https://github.com/getndazn/kopytko-utils/issues/8)
+
 ## [1.1.1](https://github.com/getndazn/kopytko-utils/compare/v1.1.0...v1.1.1) (2021-09-27)
 
 
