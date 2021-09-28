@@ -22,7 +22,7 @@ function Debouncer(callback as Function, waitTime = 0 as Float, context = Invali
     m._timeoutId = setTimeout(m._callback, m._waitTime, m._context)
   end sub
 
-  ' Camncels active debounce timer.
+  ' Cancels active debounce timer.
   prototype.cancel = sub ()
     if (m._isPending())
       clearTimeout(m._timeoutId)
@@ -30,6 +30,7 @@ function Debouncer(callback as Function, waitTime = 0 as Float, context = Invali
     end if
   end sub
 
+  ' @private
   prototype._isPending = function () as Boolean
     return (m._timeoutId <> "")
   end function

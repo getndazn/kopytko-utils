@@ -1,3 +1,5 @@
+' Config for AppInfo mock.
+' @param {Object} [getValueData={}] - The manifest data that is retrieved by getValue method.
 ' @returns {Object}
 function getAppInfoMockConfig(getValueData = {} as Object) as Object
   return {
