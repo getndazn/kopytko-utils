@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/getndazn/kopytko-utils/compare/v2.0.0...v2.0.1) (2021-12-03)
+
+
+### Bug Fixes
+
+* **deps:** Fixed npm urls ([#10](https://github.com/getndazn/kopytko-utils/issues/10)) ([fcbca3d](https://github.com/getndazn/kopytko-utils/commit/fcbca3dcc1a8b07440b8bd0ecc5a8f34dfa7946f))
+
 # [2.0.0](https://github.com/getndazn/kopytko-utils/compare/v1.1.2...v2.0.0) (2021-09-28)
 
 
