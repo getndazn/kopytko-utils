@@ -84,5 +84,64 @@ function ObjectUtils() as Object
     return picked
   end function
 
+  ' Deep print the nested object till specified level
+  ' @example
+  ' obj = {
+  '   "key11": "value11",
+  '   "key12": {
+  '     "key21": "value21",
+  '     "key22": {
+  '       "key31": "value31",
+  '     },
+  '   },
+  ' }
+  ' ObjectUtils().print(obj, 2)
+  ' prints
+  ' {
+  '   key11 : value11,
+  '   key12 {
+  '     key21 : value21,
+  '     key22 { object },
+  '   },
+  ' }
+  ' @param {Object} obj
+  ' @param {Integer} nestedUntil [default value is 3] - Object nesting level till it should be printed
+  prototype.print = function (obj as object, nestedUntil = 3 as integer)
+    if (nestedUntil < 1)
+      print "{ object }" 
+      return true
+    end if
+    
+    print "{"
+    m._printNestedObject(obj, nestedUntil)
+    print "}"
+  end function
+
+  ' @private
+  prototype._printNestedObject = function (obj as Object, nestedUntil as Integer, currentLevel = 1 as Integer)
+    indentationValue = 2
+    tabValue = currentLevel * indentationValue
+
+    for each property in obj.items()
+      if (getType(property.value) = "roAssociativeArray" OR getType(property.value) = "roSGNode")
+        if (currentLevel < nestedUntil)
+          m._printFormattedString(tabValue, Substitute("{0} {", property.key))
+          m._printNestedObject(property.value, nestedUntil, currentLevel + 1)
+        else
+          m._printFormattedString(tabValue, Substitute("{0} { object },", property.key))
+        end if
+      else
+        m._printFormattedString(tabValue, Substitute("{0} : {1},", property.key, property.value.toStr()))
+      end if
+    end for
+
+    if (currentLevel > 1) then m._printFormattedString((tabValue - indentationValue), "},")
+  end function
+
+  ' @private
+  prototype._printFormattedString = function (tabValue as Integer, str as String)
+    print Tab(tabValue) str
+  end function
+
   return prototype
 end function
