@@ -95,7 +95,7 @@ function ObjectUtils() as Object
   '     },
   '   },
   ' }
-  ' ObjectUtils().print(obj, 2)
+  ' ObjectUtils().deepPrint(obj, 2)
   ' prints
   ' {
   '   key11 : value11,
@@ -106,12 +106,12 @@ function ObjectUtils() as Object
   ' }
   ' @param {Object} obj
   ' @param {Integer} nestedUntil [default value is 3] - Object nesting level till it should be printed
-  prototype.print = function (obj as object, nestedUntil = 3 as integer)
+  prototype.deepPrint = function (obj as object, nestedUntil = 3 as integer)
     if (nestedUntil < 1)
       print "{ object }" 
       return true
     end if
-    
+
     print "{"
     m._printNestedObject(obj, nestedUntil)
     print "}"
