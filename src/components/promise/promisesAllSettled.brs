@@ -33,7 +33,7 @@ function promisesAllSettled(promiseInstances as Object) as Object
     if (_promise.status = _promise.STATUS_FULFILLED OR _promise.status = _promise.STATUS_REJECTED)
       context.onPromiseSettled(_promise.value, context)
     else
-      _promise.then(context.onPromiseSettled, context.onPromiseSettled, context)
+      _promise.finally(context.onPromiseSettled, context)
     end if
   end for
 
