@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/getndazn/kopytko-utils/compare/v2.0.1...v2.1.0) (2022-06-29)
+
+
+### Features
+
+* added promisesAllSettled method which resolves after all of the given promises have either fulfilled or rejected ([7fceecb](https://github.com/getndazn/kopytko-utils/commit/7fceecb984de84de0d833b933fefa31f74c25005))
+
 ## [2.0.1](https://github.com/getndazn/kopytko-utils/compare/v2.0.0...v2.0.1) (2021-12-03)
 
 
