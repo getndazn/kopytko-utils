@@ -60,7 +60,7 @@ function AnimatorFactory() as Object
     else
       print "Field ";fieldOptions.field;" cannot be animated. Unsupported type of a field."
 
-      return invalid
+      return Invalid
     end if
 
     interpolator.fieldToInterp = "" ' Prevents animations not being applied sometimes
