@@ -1,5 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
-' @mock pkg:/components/animator/AnimatorCore.brs
+' @mock /components/animator/AnimatorCore.brs
 function AnimatorTestSuite() as Object
   ts = KopytkoTestSuite()
 
