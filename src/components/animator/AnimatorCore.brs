@@ -1,14 +1,14 @@
-' @import /components/getProperty.brs
+' @import /components/animator/AnimatorFactory.brs
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseReject.brs
-' @import /components/rokuComponents/Animation.brs
-' @import /components/rokuComponents/FloatFieldInterpolator.brs
-' @import /components/rokuComponents/Vector2DFieldInterpolator.brs
 
 ' The base animator class. It supports starting/stopping various animations supported by FloatFieldInterpolator or Vector2DFieldInterpolator.
 ' @class
 function AnimatorCore() as Object
   prototype = {}
+
+  ' @private
+  prototype._animatorFactory = AnimatorFactory()
 
   ' @private
   prototype._contexts = {}
@@ -38,14 +38,16 @@ function AnimatorCore() as Object
   ' @param {Boolean} options.reverse
   ' @returns {Promise} - Promise resolves when animation is finished. Rejects when there is an active animation and new one is set for the same property.
   prototype.animate = function (element as Object, options = {} as Object) as Object
-    if (element = Invalid OR options.keyValue = Invalid)
+    if (element = Invalid OR options.field = Invalid OR options.keyValue = Invalid)
       return PromiseReject("Wrong parameter")
     end if
 
     contextName = m._getContextName(element.id, options.field)
     m._clearContext(contextName)
 
-    _animation = m._createAnimation(contextName, element, options)
+    _animation = m._animatorFactory.createAnimation(contextName, m._prepareOptions(options, element), element)
+    _animation.observeFieldScoped("state", "AnimatorCore_onAnimationStateChanged")
+
     m._contexts[contextName] = {
       animation: _animation,
       promise: Promise(),
@@ -96,51 +98,6 @@ function AnimatorCore() as Object
   end sub
 
   ' @private
-  prototype._createAnimation = function (name as String, element as Object, options = {} as Object) as Object
-    _animation = Animation()
-    _animation.setFields({
-      id: name,
-      delay: getProperty(options, "delay", 0.001),
-      duration: getProperty(options, "duration", 0.5),
-      easeFunction: getProperty(options, "easeFunction", "outExpo"),
-      optional: true,
-    })
-    _animation.observeFieldScoped("state", "AnimatorCore_onAnimationStateChanged")
-
-    interpolator = m._createInterpolator(element, options)
-    if (interpolator <> Invalid)
-      _animation.insertChild(interpolator, 0)
-    end if
-
-    return _animation
-  end function
-
-  ' @private
-  prototype._createInterpolator = function (element as Object, options as Object) as Object
-    elementFieldTypes = element.getFieldTypes()
-    fieldName = options.field
-
-    if (elementFieldTypes[fieldName] = "float")
-      interpolator = FloatFieldInterpolator()
-    else if (elementFieldTypes[fieldName] = "vector2d")
-      interpolator = Vector2DFieldInterpolator()
-    else
-      print "Field ";fieldName;" cannot be animated. Unsupported type of a field."
-
-      return Invalid
-    end if
-
-    interpolator.fieldToInterp = "" ' Prevents animations not being applied sometimes
-    interpolator.fieldToInterp = element.id + "." + fieldName
-
-    interpolator.key = getProperty(options, "key", [0, 1])
-    interpolator.keyValue = options.keyValue
-    interpolator.reverse = getProperty(options, "reverse", false)
-
-    return interpolator
-  end function
-
-  ' @private
   prototype._updateAllAnimationsFor = sub (element as Object, control as String)
     for each name in m._contexts
       if (name.split(".")[0] = element.id)
@@ -148,6 +105,26 @@ function AnimatorCore() as Object
       end if
     end for
   end sub
+
+  ' @private
+  prototype._prepareOptions = function (options as Object, element as Object) as Object
+    field = options.field
+
+    return {
+      delay: options.delay,
+      duration: options.duration,
+      easeFunction: options.easeFunction,
+      fields: [
+        {
+          field: field,
+          key: options.key,
+          keyValue: options.keyValue,
+          reverse: options.reverse,
+          type: element.getFieldTypes()[field],
+        }
+      ],
+    }
+  end function
 
   return _constructor(prototype, m)
 end function
