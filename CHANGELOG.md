@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/getndazn/kopytko-utils/compare/v2.1.0...v2.2.0) (2022-07-14)
+
+
+### Features
+
+* extracted animator factory ([#13](https://github.com/getndazn/kopytko-utils/issues/13)) ([07bfd0b](https://github.com/getndazn/kopytko-utils/commit/07bfd0b36d1d6ade760aa31ee17300d27b7638d3))
+
 # [2.1.0](https://github.com/getndazn/kopytko-utils/compare/v2.0.1...v2.1.0) (2022-06-29)
 
 
