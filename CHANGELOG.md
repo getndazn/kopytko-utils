@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/getndazn/kopytko-utils/compare/v2.2.0...v2.2.1) (2022-08-05)
+
+
+### Bug Fixes
+
+* update dependencies ([#14](https://github.com/getndazn/kopytko-utils/issues/14)) ([b19e1fb](https://github.com/getndazn/kopytko-utils/commit/b19e1fbda8d2d5f1b76accbbe09e1f27a7748b61))
+
 # [2.2.0](https://github.com/getndazn/kopytko-utils/compare/v2.1.0...v2.2.0) (2022-07-14)
 
 
