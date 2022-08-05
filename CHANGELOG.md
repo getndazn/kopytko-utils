@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/getndazn/kopytko-utils/compare/v2.2.1...v2.2.2) (2022-08-05)
+
+
+### Bug Fixes
+
+* add missing licence ([#15](https://github.com/getndazn/kopytko-utils/issues/15)) ([b1bd6df](https://github.com/getndazn/kopytko-utils/commit/b1bd6dfe7c44ca638c0d6bdd4c0ea3a2aa3e76da))
+
 ## [2.2.1](https://github.com/getndazn/kopytko-utils/compare/v2.2.0...v2.2.1) (2022-08-05)
 
 
