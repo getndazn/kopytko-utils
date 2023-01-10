@@ -1,5 +1,5 @@
-' @import /components/getProperty.brs
 ' @import /components/animator/AnimatorCore.brs
+' @import /components/getProperty.brs
 
 ' Utility that helps creating and managing animations like fade, fadeIn or fadeOut.
 ' The class can animate any field that is supported by FloatFieldInterpolator or Vector2DFieldInterpolator.

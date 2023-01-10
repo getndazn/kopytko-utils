@@ -1,6 +1,6 @@
 ' @import /components/functionCall.brs
-' @import /components/uuid.brs
 ' @import /components/rokuComponents/Timer.brs
+' @import /components/uuid.brs
 
 ' Executes given callback after given timeout.
 ' @param {Function} callback - Function that is fired.
