@@ -1,6 +1,6 @@
 ' @import /components/functionCall.brs
-' @import /components/uuid.brs
 ' @import /components/rokuComponents/Timer.brs
+' @import /components/uuid.brs
 
 ' Executes given callback every given timeout until it is stopped by clearInterval function call.
 ' @param {Function} callback - Function that is fired.
