@@ -27,7 +27,10 @@ function AnimatorFactory() as Object
       delay: getProperty(options, "delay", 0.001),
       duration: getProperty(options, "duration", 0.5),
       easeFunction: getProperty(options, "easeFunction", "outExpo"),
-      optional: true,
+      easeInPercent: getProperty(options, "easeInPercent", 0.5),
+      easeOutPercent: getProperty(options, "easeOutPercent", 0.5),
+      optional: getProperty(options, "optional", true),
+      repeat: getProperty(options, "repeat", false),
     })
 
     if (element = Invalid)

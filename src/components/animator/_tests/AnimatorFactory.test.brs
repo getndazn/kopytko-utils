@@ -16,6 +16,10 @@ function TestSuite__AnimatorFactory() as Object
       delay: Csng(0.2),
       duration: Csng(20),
       easeFunction: "linear",
+      easeInPercent: 0.1,
+      easeOutPercent: 0.2,
+      optional: false,
+      repeat: true,
     }
 
     ' When
@@ -27,12 +31,20 @@ function TestSuite__AnimatorFactory() as Object
       delay: options.delay,
       duration: options.duration,
       easeFunction: options.easeFunction,
+      easeInPercent: options.easeInPercent,
+      easeOutPercent: options.easeOutPercent,
+      optional: options.optional,
+      repeat: options.repeat,
     }
     constructedConfig = {
       id: _animation.id,
       delay: Csng(_animation.delay),
       duration: Csng(_animation.duration),
       easeFunction: _animation.easeFunction,
+      easeInPercent: _animation.easeInPercent,
+      easeOutPercent: _animation.easeOutPercent,
+      optional: _animation.optional,
+      repeat: _animation.repeat,
     }
 
     return ts.assertEqual(constructedConfig, expectedConfig, "Animation config is wrong")
