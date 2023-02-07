@@ -1,3 +1,4 @@
+' @import /components/getType.brs
 ' @import /components/rokuComponents/EVPDigest.brs
 function CacheFS() as Object
   prototype = {}
@@ -37,6 +38,7 @@ function CacheFS() as Object
     if (key = "" OR data = Invalid) then return false
 
     content = FormatJson(data)
+    if (content = "" AND getType(data) <> "roString") then return false
 
     return WriteAsciiFile(m._PREFIX + m._hash(key), content)
   end function

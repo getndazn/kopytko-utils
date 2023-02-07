@@ -89,6 +89,17 @@ function TestSuite__CacheFS() as Object
     return ts.assertFalse(returnedData)
   end function)
 
+  ts.addTest("write returns false in case of non-parseable data passed", function (ts as Object) as String
+    ' Given
+    cache = CacheFS()
+
+    ' When
+    returnedData = cache.write(ts.__dataKey, CreateObject("roDateTime"))
+
+    ' Then
+    return ts.assertFalse(returnedData)
+  end function)
+
   ts.addTest("delete deletes data stored under the given key", function (ts as Object) as String
     ' Given
     data = { super: "data" }
