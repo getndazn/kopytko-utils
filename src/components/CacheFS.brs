@@ -1,4 +1,3 @@
-' @import /components/getType.brs
 ' @import /components/rokuComponents/EVPDigest.brs
 function CacheFS() as Object
   prototype = {}
@@ -18,7 +17,7 @@ function CacheFS() as Object
 
   ' Reads data stored in cachefs under the specific key
   ' @param {String} key
-  ' @returns {Object}
+  ' @returns {Object} Invalid if key is incorrect or is not stored
   prototype.read = function (key as String) as Object
     if (key = "") then return Invalid
 
@@ -32,13 +31,13 @@ function CacheFS() as Object
 
   ' Writes data into cachefs under the specific key
   ' @param {String} key
-  ' @param {Object} data - associative array data
-  ' @returns {Boolean} true if data successfully stored
+  ' @param {Object} data - any value acceptable by native FormatJson function except Invalid
+  ' @returns {Boolean} false if data is not parseable or if storing failed
   prototype.write = function (key as String, data as Object) as Boolean
     if (key = "" OR data = Invalid) then return false
 
     content = FormatJson(data)
-    if (content = "" AND getType(data) <> "roString") then return false
+    if (content = "") then return false
 
     return WriteAsciiFile(m._PREFIX + m._hash(key), content)
   end function

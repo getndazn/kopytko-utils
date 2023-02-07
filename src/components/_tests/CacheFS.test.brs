@@ -29,8 +29,9 @@ function TestSuite__CacheFS() as Object
 
   ts.addParameterizedTests([
     { super: "data" },
-    [1,2,3],
+    [1, 2, 3],
     "",
+    777,
   ], "read returns data stored via write method", function (ts as Object, data as Object) as String
     ' Given
     cache = CacheFS()
