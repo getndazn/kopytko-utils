@@ -32,7 +32,7 @@ function CacheFS() as Object
   ' Writes data into cachefs under the specific key
   ' @param {String} key
   ' @param {Object} data - any value acceptable by native FormatJson function except Invalid
-  ' @returns {Boolean} false if data is not parseable or if storing failed
+  ' @returns {Boolean} false if data is not parseable, Invalid or if storing failed
   prototype.write = function (key as String, data as Object) as Boolean
     if (key = "" OR data = Invalid) then return false
 
