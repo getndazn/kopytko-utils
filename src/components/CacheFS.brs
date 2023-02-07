@@ -5,10 +5,12 @@ function CacheFS() as Object
   prototype._PREFIX = "cachefs:/"
 
   prototype._digest = Invalid
+  prototype._fileSystem = Invalid
 
   _constructor = function (m as Object) as Object
     m._digest = EVPDigest()
     m._digest.setup("sha1")
+    m._fileSystem = CreateObject("roFileSystem")
 
     return m
   end function
@@ -19,8 +21,10 @@ function CacheFS() as Object
   prototype.read = function (key as String) as Object
     if (key = "") then return Invalid
 
-    content = ReadAsciiFile(m._PREFIX + m._hash(key))
-    if (content = "") then return Invalid
+    filePath = m._PREFIX + m._hash(key)
+    if (NOT m._fileSystem.exists(filePath)) then return Invalid
+
+    content = ReadAsciiFile(filePath)
 
     return ParseJson(content)
   end function
@@ -30,7 +34,7 @@ function CacheFS() as Object
   ' @param {Object} data - associative array data
   ' @returns {Boolean} true if data successfully stored
   prototype.write = function (key as String, data as Object) as Boolean
-    if (key = "") then return false
+    if (key = "" OR data = Invalid) then return false
 
     content = FormatJson(data)
 

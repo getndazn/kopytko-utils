@@ -27,10 +27,12 @@ function TestSuite__CacheFS() as Object
     return ts.assertMethodWasCalled("EVPDigest.setup", { digestType: "sha1" })
   end function)
 
-  ts.addTest("read returns data stored via write method", function (ts as Object) as String
+  ts.addParameterizedTests([
+    { super: "data" },
+    [1,2,3],
+    "",
+  ], "read returns data stored via write method", function (ts as Object, data as Object) as String
     ' Given
-    data = { super: "data" }
-
     cache = CacheFS()
     if (NOT cache.write(ts.__dataKey, data))
       return ts.fail("Couldn't write data to CacheFS")
@@ -71,6 +73,17 @@ function TestSuite__CacheFS() as Object
 
     ' When
     returnedData = cache.write("", { any: "data" })
+
+    ' Then
+    return ts.assertFalse(returnedData)
+  end function)
+
+  ts.addTest("write returns false in case of invalid data passed", function (ts as Object) as String
+    ' Given
+    cache = CacheFS()
+
+    ' When
+    returnedData = cache.write(ts.__dataKey, Invalid)
 
     ' Then
     return ts.assertFalse(returnedData)
