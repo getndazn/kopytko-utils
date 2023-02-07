@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/getndazn/kopytko-utils/compare/v2.2.2...v2.3.0) (2023-02-07)
+
+
+### Bug Fixes
+
+* Fixed rules in eslintrc and fixed violations ([#16](https://github.com/getndazn/kopytko-utils/issues/16)) ([092adde](https://github.com/getndazn/kopytko-utils/commit/092adde4e78cd0ae07556402b30c8ab07b75f876))
+
+
+### Features
+
+* Added support to missing Animation node fields ([#17](https://github.com/getndazn/kopytko-utils/issues/17)) ([875785c](https://github.com/getndazn/kopytko-utils/commit/875785c057f887cb52ef9fe86b236c3d0ea3f93c))
+* CacheFS ([#18](https://github.com/getndazn/kopytko-utils/issues/18)) ([ea21718](https://github.com/getndazn/kopytko-utils/commit/ea217189e3d631f23dc157719e76280fcacb156c))
+
 ## [2.2.2](https://github.com/getndazn/kopytko-utils/compare/v2.2.1...v2.2.2) (2022-08-05)
 
 
