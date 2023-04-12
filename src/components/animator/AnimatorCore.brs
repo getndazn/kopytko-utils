@@ -39,23 +39,22 @@ function AnimatorCore() as Object
   ' @returns {Promise} - Promise resolves when animation is finished. Rejects when there is an active animation and new one is set for the same property.
   prototype.animate = function (element as Object, options = {} as Object) as Object
     if (element = Invalid OR options.field = Invalid OR options.keyValue = Invalid)
-      return PromiseReject("Wrong parameter")
+      return PromiseReject("Wrong animate parameter")
     end if
 
     contextName = m._getContextName(element.id, options.field)
-    m._clearContext(contextName)
+    context = m._createContext(contextName, element, m._prepareOptions(options, element))
+    shouldSetNext = m._clearContext(contextName, options)
 
-    _animation = m._animatorFactory.createAnimation(contextName, m._prepareOptions(options, element), element)
-    _animation.observeFieldScoped("state", "AnimatorCore_onAnimationStateChanged")
+    if (shouldSetNext)
+      m._contexts[contextName].next = context
+    else
+      m._contexts[contextName] = context
+      context.animation.observeFieldScoped("state", "AnimatorCore_onAnimationStateChanged")
+      context.animation.control = "start"
+    end if
 
-    m._contexts[contextName] = {
-      animation: _animation,
-      promise: Promise(),
-    }
-
-    _animation.control = "start"
-
-    return m._contexts[contextName].promise
+    return context.promise
   end function
 
   ' Finishes all the active animations for a given node.
@@ -81,21 +80,34 @@ function AnimatorCore() as Object
   end sub
 
   ' @private
-  prototype._getContextName = function (elementId as String, animationType as String) as String
-    return elementId + "." + animationType
-  end function
-
-  ' @private
-  prototype._clearContext = sub (name as String)
+  prototype._clearContext = function (name as String, options = {} as Object) as Boolean
     context = m._contexts[name]
-    if (context = Invalid) then return
+
+    if (context = Invalid) then return false
+    if (context.promise.status <> 0) then return true
 
     context.animation.unobserveFieldScoped("state")
-    context.animation.control = "stop"
+    context.animation.control = "finish"
     context.promise.reject("aborted")
 
     m._contexts.delete(name)
-  end sub
+
+    return false
+  end function
+
+  ' @private
+  prototype._createContext = function (name as String, element as Object, options as Object) as Object
+    return {
+      animation: m._animatorFactory.createAnimation(name, options, element),
+      next: Invalid,
+      promise: Promise(),
+    }
+  end function
+
+  ' @private
+  prototype._getContextName = function (elementId as String, animationType as String) as String
+    return elementId + "." + animationType
+  end function
 
   ' @private
   prototype._updateAllAnimationsFor = sub (element as Object, control as String)
@@ -134,8 +146,19 @@ sub AnimatorCore_onAnimationStateChanged(event as Object)
   state = event.getData()
   if (state = "stopped")
     contextName = event.getNode()
+    context = m["$$animatorContexts"][contextName]
 
-    m["$$animatorContexts"][contextName].promise.resolve("stopped")
+    if (context = Invalid) then return
+
+    context.promise.resolve("stopped")
+    context.animation.unobserveFieldScoped("state")
+
     m["$$animatorContexts"].delete(contextName)
+
+    if (context.next <> Invalid)
+      m["$$animatorContexts"][contextName] = context.next
+      m["$$animatorContexts"][contextName].animation.observeFieldScoped("state", "AnimatorCore_onAnimationStateChanged")
+      m["$$animatorContexts"][contextName].animation.control = "start"
+    end if
   end if
 end sub

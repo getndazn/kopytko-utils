@@ -12,7 +12,7 @@ function TestSuite__AnimatorCore_promise()
     end sub)
 
     ' Then
-    return ts.assertEqual(m.__animateRejectionReason, "Wrong parameter")
+    return ts.assertEqual(m.__animateRejectionReason, "Wrong animate parameter")
   end function)
 
   ts.addTest("it returns a rejected promise if not passed keyValue option", function (ts as Object) as String
@@ -28,7 +28,7 @@ function TestSuite__AnimatorCore_promise()
     end sub)
 
     ' Then
-    return ts.assertEqual(m.__animateRejectionReason, "Wrong parameter")
+    return ts.assertEqual(m.__animateRejectionReason, "Wrong animate parameter")
   end function)
 
   ts.addTest("it resolves promise when animation is done", function (ts as Object) as String

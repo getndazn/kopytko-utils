@@ -26,7 +26,7 @@ function TestSuite__AnimatorCore_animate()
     return ts.assertEqual(actual, expected, "The animation did not start")
   end function)
 
-  ts.addTest("it stops pending animation when trying to create the same one", function (ts as Object) as String
+  ts.addTest("it finishes pending animation when trying to create the same one", function (ts as Object) as String
     ' Given
     element = CreateObject("roSGNode", "Node")
     element.id = "testElement"
@@ -39,7 +39,7 @@ function TestSuite__AnimatorCore_animate()
     m.__animator.animate(element, { field: "animatedField", keyValue: [0, 1], duration: 5 })
 
     ' Then
-    return ts.assertEqual(firstAnimation.control, "stop")
+    return ts.assertEqual(firstAnimation.control, "finish")
   end function)
 
   return ts
