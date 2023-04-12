@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/getndazn/kopytko-utils/compare/v2.3.0...v2.3.1) (2023-04-12)
+
+
+### Bug Fixes
+
+* [ROKU-1647] Animation does not work when called in the callback ([#20](https://github.com/getndazn/kopytko-utils/issues/20)) ([3d06d0d](https://github.com/getndazn/kopytko-utils/commit/3d06d0d9dc5fbac4a25aadc6af0e2200578829bb))
+
 # [2.3.0](https://github.com/getndazn/kopytko-utils/compare/v2.2.2...v2.3.0) (2023-02-07)
 
 
