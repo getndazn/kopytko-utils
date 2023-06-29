@@ -1,4 +1,6 @@
 ' @import /components/rokuComponents/EVPDigest.brs
+
+' WARNING: the service must be used on the Task threads.
 function CacheFS() as Object
   prototype = {}
 
@@ -26,7 +28,7 @@ function CacheFS() as Object
 
     content = ReadAsciiFile(filePath)
 
-    return ParseJson(content)
+    return ParseJson(content, "i")
   end function
 
   ' Writes data into cachefs under the specific key
