@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/getndazn/kopytko-utils/compare/v2.3.1...v2.3.2) (2023-07-03)
+
+
+### Bug Fixes
+
+* Returning case-insensitive data in CacheFS ([#21](https://github.com/getndazn/kopytko-utils/issues/21)) ([052ab90](https://github.com/getndazn/kopytko-utils/commit/052ab900a0fa447187c390a02034a5dac084c859))
+
 ## [2.3.1](https://github.com/getndazn/kopytko-utils/compare/v2.3.0...v2.3.1) (2023-04-12)
 
 
