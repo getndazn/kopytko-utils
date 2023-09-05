@@ -1,18 +1,24 @@
 ' @import /components/rokuComponents/EVPDigest.brs
 
 ' WARNING: the service must be used on the Task threads.
-function CacheFS() as Object
+function CacheFS(constructorArgs = {} as Object) as Object
   prototype = {}
 
   prototype._PREFIX = "cachefs:/"
 
   prototype._digest = Invalid
+  prototype._directory = Invalid
   prototype._fileSystem = Invalid
 
-  _constructor = function (m as Object) as Object
+  _constructor = function (m as Object, constructorArgs as Object) as Object
     m._digest = EVPDigest()
     m._digest.setup("sha1")
+    m._directory = ternary((getType(constructorArgs?.directory) = "roString"), constructorArgs.directory, "")
     m._fileSystem = CreateObject("roFileSystem")
+
+    if (m._directory <> "") AND (NOT m._fileSystem.exists(m._PREFIX + m._directory))
+      m._createDirectory()
+    end if
 
     return m
   end function
@@ -23,7 +29,7 @@ function CacheFS() as Object
   prototype.read = function (key as String) as Object
     if (key = "") then return Invalid
 
-    filePath = m._PREFIX + m._hash(key)
+    filePath = m._PREFIX + m._directory + m._hash(key)
     if (NOT m._fileSystem.exists(filePath)) then return Invalid
 
     content = ReadAsciiFile(filePath)
@@ -41,7 +47,7 @@ function CacheFS() as Object
     content = FormatJson(data)
     if (content = "") then return false
 
-    return WriteAsciiFile(m._PREFIX + m._hash(key), content)
+    return WriteAsciiFile(m._PREFIX + m._directory + m._hash(key), content)
   end function
 
   ' Deletes data from cachefs under the specific key
@@ -50,8 +56,25 @@ function CacheFS() as Object
   prototype.delete = function (key as String) as Boolean
     if (key = "") then return false
 
-    return DeleteFile(m._PREFIX + m._hash(key))
+    return DeleteFile(m._PREFIX + m._directory + m._hash(key))
   end function
+
+  ' Clears all data from cachefs under the specific directory
+  ' @returns {Boolean} true if all directory data is successfully removed
+  prototype.clear = sub () as Boolean
+    if (m._directory = "") then return false
+
+    if (m._fileSystem.delete(m._PREFIX + m._directory))
+      return m._createDirectory()
+    end if
+
+    return false
+  end sub
+
+  ' @private
+  prototype._createDirectory = sub () as Boolean
+    return m._fileSystem.createDirectory(m._PREFIX + m._directory)
+  end sub
 
   ' @private
   prototype._hash = function (text as String) as String
@@ -61,5 +84,5 @@ function CacheFS() as Object
     return m._digest.process(byteArray)
   end function
 
-  return _constructor(prototype)
+  return _constructor(prototype, constructorArgs)
 end function
