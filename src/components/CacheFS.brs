@@ -1,4 +1,6 @@
 ' @import /components/rokuComponents/EVPDigest.brs
+' @import /components/getType.brs
+' @import /components/ternary.brs
 
 ' WARNING: the service must be used on the Task threads.
 function CacheFS(constructorArgs = {} as Object) as Object
