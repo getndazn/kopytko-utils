@@ -1,4 +1,6 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+' @import /components/getType.brs
+' @import /components/ternary.brs
 ' @mock /components/rokuComponents/EVPDigest.brs
 function TestSuite__CacheFS() as Object
   ts = KopytkoTestSuite()
@@ -12,10 +14,13 @@ function TestSuite__CacheFS() as Object
       },
     }
 
-    ts.__dataKey = "example key"
+    ts.__directoryKey = "example directory key"
+    ts.__dataKey = "example data key"
   end sub)
 
   ts.setAfterEach(sub (ts as Object)
+    CacheFS({ directory: ts.__directoryKey }).clear()
+    CacheFS().delete(ts.__directoryKey)
     CacheFS().delete(ts.__dataKey)
   end sub)
 
@@ -105,7 +110,7 @@ function TestSuite__CacheFS() as Object
     ' Given
     data = { super: "data" }
 
-    cache = CacheFS()
+    cache = CacheFS({ directory: ts.__directoryKey })
     if (NOT cache.write(ts.__dataKey, data))
       return ts.fail("Couldn't write data to CacheFS")
     end if
@@ -129,6 +134,33 @@ function TestSuite__CacheFS() as Object
 
     ' Then
     return ts.assertFalse(result)
+  end function)
+
+  ts.addTest("clear returns false in case of empty directory name", function (ts as Object) as String
+    ' Given
+    cache = CacheFS()
+
+    ' When
+    result = cache.clear()
+
+    ' Then
+    return ts.assertFalse(result)
+  end function)
+
+  ts.addTest("clear successfully purges target directory", function (ts as Object) as String
+    ' Given
+    data = { super: "data" }
+
+    cache = CacheFS({ directory: ts.__directoryKey })
+    if (NOT cache.write(ts.__dataKey, data))
+      return ts.fail("Couldn't write data to CacheFS")
+    end if
+
+    ' When
+    result = cache.clear()
+
+    ' Then
+    return ts.assertTrue(result)
   end function)
 
   return ts
