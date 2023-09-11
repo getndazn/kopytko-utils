@@ -13,10 +13,12 @@ function TestSuite__CacheFS() as Object
     }
 
     ts.__dataKey = "example key"
+    ts.__folderKey = "example folder"
   end sub)
 
   ts.setAfterEach(sub (ts as Object)
-    CacheFS().delete(ts.__dataKey)
+    CacheFS().clear()
+    CacheFS(ts.__folderKey).clear()
   end sub)
 
   ts.addTest("constructor creates EVPDigest and sets sha1 algorithm", function (ts as Object) as String
@@ -105,7 +107,7 @@ function TestSuite__CacheFS() as Object
     ' Given
     data = { super: "data" }
 
-    cache = CacheFS()
+    cache = CacheFS(ts.__folderKey)
     if (NOT cache.write(ts.__dataKey, data))
       return ts.fail("Couldn't write data to CacheFS")
     end if
@@ -129,6 +131,22 @@ function TestSuite__CacheFS() as Object
 
     ' Then
     return ts.assertFalse(result)
+  end function)
+
+  ts.addTest("clear successfully purges folder", function (ts as Object) as String
+    ' Given
+    data = { super: "data" }
+
+    cache = CacheFS(ts.__folderKey)
+    if (NOT cache.write(ts.__dataKey, data))
+      return ts.fail("Couldn't write data to CacheFS")
+    end if
+
+    ' When
+    cache.clear()
+
+    ' Then
+    return ts.assertInvalid(cache.read(ts.__dataKey))
   end function)
 
   return ts
