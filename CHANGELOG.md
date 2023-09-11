@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/getndazn/kopytko-utils/compare/v2.3.2...v2.4.0) (2023-09-11)
+
+
+### Features
+
+* CacheFS improvement - Folder support ([#22](https://github.com/getndazn/kopytko-utils/issues/22)) ([9181333](https://github.com/getndazn/kopytko-utils/commit/9181333db4bb282e5ad8c89695687c5dfb3ef918))
+
 ## [2.3.2](https://github.com/getndazn/kopytko-utils/compare/v2.3.1...v2.3.2) (2023-07-03)
 
 
