@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/getndazn/kopytko-utils/compare/v2.4.0...v2.4.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* Handling non-string parameters by buildUrl ([#23](https://github.com/getndazn/kopytko-utils/issues/23)) ([1ec2091](https://github.com/getndazn/kopytko-utils/commit/1ec20915f6c78c20dd70b9bac9ea893abf671d53))
+
 # [2.4.0](https://github.com/getndazn/kopytko-utils/compare/v2.3.2...v2.4.0) (2023-09-11)
 
 
