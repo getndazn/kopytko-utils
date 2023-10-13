@@ -81,7 +81,7 @@ function TestSuite__buildUrl() as Object
   ts.addTest("ignores parameters that can't be converted to non-empty string", function (ts as Object) as String
     ' Given
     path = "/example-path"
-    params = { param1: "", param2: ["p2"], param3: { p3: "p3"}, param4: invalid }
+    params = { param1: "", param2: ["p2"], param3: { p3: "p3"}, param4: CreateObject("roSGNode", "Node"), param5: invalid }
     expectedUrl = "/example-path"
 
     ' When
