@@ -59,18 +59,18 @@ function CacheFS(folder = "kopytkoCache" as String) as Object
 
   ' Clears all data from cachefs under the specific directory
   ' @returns {Boolean} true if all directory data is successfully removed
-  prototype.clear = sub () as Boolean
+  prototype.clear = function () as Boolean
     if (m._fileSystem.delete(m._PREFIX + m._folder))
       return m._createFolder()
     end if
 
     return false
-  end sub
+  end function
 
   ' @private
-  prototype._createFolder = sub () as Boolean
+  prototype._createFolder = function () as Boolean
     return m._fileSystem.createDirectory(m._PREFIX + m._folder)
-  end sub
+  end function
 
   ' @private
   prototype._hash = function (text as String) as String
