@@ -3,7 +3,7 @@
 ' ?buildUrl("http://myurl.com", { queryString: "123" })
 ' ' prints http://myurl.com?queryString=123
 ' @param {String} path
-' @param {Object} [params=Invalid] - The AA of strings.
+' @param {Object} [params=Invalid] - The AA of values convertible to string.
 ' @returns {String}
 function buildUrl(path as String, params = Invalid as Object) as String
   ' It might be encoded already. To avoid encoding encoded url it needs to be decoded first.
@@ -14,10 +14,18 @@ function buildUrl(path as String, params = Invalid as Object) as String
   end if
 
   paramParts = []
-  for each paramKey in params
-    value = params[paramKey]
+  for each paramKey in params.keys()
+    rawValue = params[paramKey]
+    value = Invalid
+
+    if (rawValue <> Invalid AND GetInterface(rawValue, "ifToStr") <> Invalid)
+      value = rawValue.toStr()
+    end if
+
     if (value <> Invalid AND value <> "")
       paramParts.push(paramKey.encodeUriComponent() + "=" + value.encodeUriComponent())
+    else
+      ?"buildUrl: '";paramKey;"' param is ignored because it can't be converted to string"
     end if
   end for
 

@@ -42,18 +42,14 @@ function TestSuite__buildUrl() as Object
   ts.addTest("returns the proper URL for multiple params", function (ts as Object) as String
     ' Given
     path = "/example-path"
-    params = { paramOne: "valueOne", paramTwo: "valueTwo" }
-    ' Because "for each" loop for AAs doesn't guarantee the order, the result may be one of the following
-    expectedUrls = [
-      "/example-path?paramone=valueOne&paramtwo=valueTwo",
-      "/example-path?paramtwo=valueTwo&paramone=valueOne",
-    ]
+    params = { paramOne: "valueOne", paramTwo: 2, paramThree: false }
+    expectedUrl = "/example-path?paramone=valueOne&paramthree=false&paramtwo=2"
 
     ' When
     result = buildUrl(path, params)
 
     ' Then
-    return ts.assertArrayContains(expectedUrls, result)
+    return ts.assertEqual(result, expectedUrl)
   end function)
 
   ts.addTest("returns URL with encoded space sign", function (ts as Object) as String
@@ -82,10 +78,10 @@ function TestSuite__buildUrl() as Object
     return ts.assertEqual(result, expectedUrl)
   end function)
 
-  ts.addTest("ignores empty string parameter", function (ts as Object) as String
+  ts.addTest("ignores parameters that can't be converted to non-empty string", function (ts as Object) as String
     ' Given
     path = "/example-path"
-    params = { parameter: "" }
+    params = { param1: "", param2: ["p2"], param3: { p3: "p3"}, param4: CreateObject("roSGNode", "Node"), param5: invalid }
     expectedUrl = "/example-path"
 
     ' When
