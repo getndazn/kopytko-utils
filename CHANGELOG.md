@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/getndazn/kopytko-utils/compare/v2.4.1...v2.4.2) (2023-10-20)
+
+
+### Bug Fixes
+
+* Fixed clearing context in Animator ([#24](https://github.com/getndazn/kopytko-utils/issues/24)) ([b0b5ed7](https://github.com/getndazn/kopytko-utils/commit/b0b5ed738b5cff272cd9398edbb26418ebddf5c1))
+
 ## [2.4.1](https://github.com/getndazn/kopytko-utils/compare/v2.4.0...v2.4.1) (2023-10-13)
 
 
