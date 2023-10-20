@@ -135,6 +135,8 @@ sub AnimatorCore_onAnimationStateChanged(event as Object)
   if (state = "stopped")
     contextName = event.getNode()
 
+    if (NOT m["$$animatorContexts"].doesExist(contextName)) then return
+
     context = m["$$animatorContexts"][contextName]
     m["$$animatorContexts"].delete(contextName)
     context.promise.resolve("stopped")
