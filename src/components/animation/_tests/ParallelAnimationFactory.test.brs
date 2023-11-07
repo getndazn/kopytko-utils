@@ -9,7 +9,10 @@ function TestSuite__ParallelAnimationFactory() as Object
     m.__parallelAnimationFactory = ParallelAnimationFactory()
 
     m.__mocks.animatorFactory = {
-      returnValue: Animation(),
+      createAnimation: {
+        calls: [],
+        returnValue: Animation(),
+      },
     }
   end sub)
 
@@ -65,6 +68,10 @@ function TestSuite__ParallelAnimationFactory() as Object
           easeOutPercent: 0.2,
           optional: false,
           repeat: false,
+          fields: [
+            { field: "opacity", type: "float" }
+            { field: "translation", type: "vector2d" }
+          ],
         },
       },
     }
@@ -74,7 +81,6 @@ function TestSuite__ParallelAnimationFactory() as Object
 
     ' Then
     expectedConfig = {
-      element: invalid,
       name: "elementone",
       options: {
         delay: options.animations.elementOne.delay,
@@ -84,10 +90,52 @@ function TestSuite__ParallelAnimationFactory() as Object
         easeOutPercent: options.animations.elementOne.easeOutPercent,
         optional: options.animations.elementOne.optional,
         repeat: options.animations.elementOne.repeat,
+        fields: options.animations.elementOne.fields,
+        },
+      }
+
+    return ts.assertMethodWasCalled("AnimatorFactory.createAnimation", expectedConfig)
+  end function)
+
+  ts.addTest("it creates 2 child animation objects", function (ts as Object) as String
+    ' Given
+    options = {
+      delay: Csng(0.2),
+      repeat: true,
+      animations: {
+        elementOne: {
+          delay: Csng(0.2),
+          duration: Csng(20),
+          easeFunction: "linear",
+          easeInPercent: 0.1,
+          easeOutPercent: 0.2,
+          optional: false,
+          repeat: false,
+          fields: [
+            { field: "opacity", type: "float" }
+            { field: "translation", type: "vector2d" }
+          ],
+        },
+        elementTwo: {
+          delay: Csng(122),
+          duration: Csng(20),
+          easeFunction: "outExpo",
+          easeInPercent: 0.1,
+          easeOutPercent: 0.2,
+          optional: false,
+          repeat: false,
+          fields: [
+            { field: "color", type: "color" }
+          ],
+        },
       },
     }
 
-    return ts.assertMethodWasCalled("AnimatorFactory.createAnimation", expectedConfig)
+    ' When
+    m.__parallelAnimationFactory.createAnimation("testElement", options)
+
+    ' Then
+    return ts.assertEqual(m.__mocks.animatorFactory.createAnimation.calls.count(), 2)
   end function)
 
   return ts
