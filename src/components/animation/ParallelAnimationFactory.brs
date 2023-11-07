@@ -11,7 +11,7 @@ function ParallelAnimationFactory() as Object
   ' @param {Object} [options={}]
   ' @param {Float} options.delay
   ' @param {Boolean} options.repeat
-  ' @param {Object.<string, AnimatorFactory~Options>}
+  ' @param {Object.<string, AnimatorFactory~Options>} options.animations
   ' @param {Node} element
   ' @returns {Object} - ParallelAnimation component
   prototype.createAnimation = function(name as String, options = {} as Object) as Object
