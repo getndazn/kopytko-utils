@@ -5,18 +5,11 @@ function TestSuite__ParallelAnimationFactory() as Object
   ts = KopytkoTestSuite()
   ts.name = "ParallelAnimatorFactory"
 
-  ts.setBeforeEach(sub (ts as Object)
-    m.__parallelAnimationFactory = ParallelAnimationFactory()
-
-    m.__mocks.animatorFactory = {
-      createAnimation: {
-        calls: [],
-        returnValue: Animation(),
-      },
-    }
+  beforeEach(sub (_ts as Object)
+    mockFunction("AnimatorFactory.createAnimation").returnValue(Animation())
   end sub)
 
-  ts.addTest("it creates animation object with given config", function (ts as Object) as String
+  it("creates animation object with given config", function (_ts as Object) as String
     ' Given
     options = {
       delay: Csng(0.2),
@@ -35,26 +28,26 @@ function TestSuite__ParallelAnimationFactory() as Object
     }
 
     ' When
-    _animation = m.__parallelAnimationFactory.createAnimation("testElement", options)
+    _animation = ParallelAnimationFactory().createAnimation("testElement", options)
 
     ' Then
-    expectedConfig = {
-      id: "testElement",
-      delay: options.delay,
-      repeat: options.repeat,
-      type: "ParallelAnimation",
-    }
     constructedConfig = {
       id: _animation.id,
       delay: Csng(_animation.delay),
       repeat: _animation.repeat,
       type: _animation.subType(),
     }
+    expectedConfig = {
+      id: "testElement",
+      delay: options.delay,
+      repeat: options.repeat,
+      type: "ParallelAnimation",
+    }
 
-    return ts.assertEqual(expectedConfig, constructedConfig, "Animation config is wrong")
+    return expect(constructedConfig).toEqual(expectedConfig)
   end function)
 
-  ts.addTest("it creates child animation object", function (ts as Object) as String
+  it("creates child animation object", function (_ts as Object) as String
     ' Given
     options = {
       delay: Csng(0.2),
@@ -77,7 +70,7 @@ function TestSuite__ParallelAnimationFactory() as Object
     }
 
     ' When
-    _animation = m.__parallelAnimationFactory.createAnimation("testElement", options)
+    ParallelAnimationFactory().createAnimation("testElement", options)
 
     ' Then
     expectedConfig = {
@@ -94,10 +87,10 @@ function TestSuite__ParallelAnimationFactory() as Object
         },
       }
 
-    return ts.assertMethodWasCalled("AnimatorFactory.createAnimation", expectedConfig)
+    return expect("AnimatorFactory.createAnimation").toHaveBeenCalledWith(expectedConfig, { times: 1 })
   end function)
 
-  ts.addTest("it creates 2 child animation objects", function (ts as Object) as String
+  it("creates 2 child animation objects", function (_ts as Object) as String
     ' Given
     options = {
       delay: Csng(0.2),
@@ -132,10 +125,10 @@ function TestSuite__ParallelAnimationFactory() as Object
     }
 
     ' When
-    m.__parallelAnimationFactory.createAnimation("testElement", options)
+    ParallelAnimationFactory().createAnimation("testElement", options)
 
     ' Then
-    return ts.assertEqual(m.__mocks.animatorFactory.createAnimation.calls.count(), 2)
+    return expect("AnimatorFactory.createAnimation").toHaveBeenCalledTimes(2)
   end function)
 
   return ts
