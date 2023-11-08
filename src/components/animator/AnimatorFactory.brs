@@ -3,21 +3,26 @@
 ' @import /components/rokuComponents/FloatFieldInterpolator.brs
 ' @import /components/rokuComponents/Vector2DFieldInterpolator.brs
 
+' @typedef {Object} AnimatorFactory~Options
+' @property {Float} delay
+' @property {Float} duration
+' @property {String} easeFunction
+' @property {Float} easeInPercent
+' @property {Float} easeOutPercent
+' @property {Boolean} repeat
+' @property {Object[]} fields
+' @property {String} fields.field
+' @property {Integer[]} fields.key
+' @property {Dynamic[]} fields.keyValue
+' @property {Boolean} fields.reverse
+
 ' @class
 function AnimatorFactory() as Object
   prototype = {}
 
   ' Creates Animation component with one or more interpolators.
   ' @param {String} name
-  ' @param {Object} [options={}]
-  ' @param {Float} options.delay
-  ' @param {Float} options.duration
-  ' @param {String} options.easeFunction
-  ' @param {Object[]} options.fields
-  ' @param {String} options.fields.field
-  ' @param {Integer[]} options.fields.key
-  ' @param {Dynamic[]} options.fields.keyValue
-  ' @param {Boolean} options.fields.reverse
+  ' @param {AnimatorFactory~Options} [options={}]
   ' @param {Node} element
   ' @returns {Object} - Animation component
   prototype.createAnimation = function (name as String, options = {} as Object, element = Invalid as Object) as Object
