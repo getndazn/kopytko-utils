@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/getndazn/kopytko-utils/compare/v2.4.2...v2.5.0) (2023-11-08)
+
+
+### Features
+
+* Parallel animation added ([#25](https://github.com/getndazn/kopytko-utils/issues/25)) ([dc9d32f](https://github.com/getndazn/kopytko-utils/commit/dc9d32f6b0c7a6b7105d94e20ad133606666a3a3))
+
 ## [2.4.2](https://github.com/getndazn/kopytko-utils/compare/v2.4.1...v2.4.2) (2023-10-20)
 
 
