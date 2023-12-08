@@ -1,5 +1,6 @@
 ' @import /components/getProperty.brs
 ' @import /components/rokuComponents/Animation.brs
+' @import /components/rokuComponents/ColorFieldInterpolator.brs
 ' @import /components/rokuComponents/FloatFieldInterpolator.brs
 ' @import /components/rokuComponents/Vector2DFieldInterpolator.brs
 
@@ -65,6 +66,8 @@ function AnimatorFactory() as Object
       interpolator = FloatFieldInterpolator()
     else if (fieldOptions.type = "vector2d")
       interpolator = Vector2DFieldInterpolator()
+    else if (fieldOptions.type = "color")
+      interpolator = ColorFieldInterpolator()
     else
       print "Field ";fieldOptions.field;" cannot be animated. Unsupported type of a field."
 
