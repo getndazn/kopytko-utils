@@ -1,5 +1,6 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/rokuComponents/Animation.brs
+' @mock /components/rokuComponents/ColorFieldInterpolator.brs
 ' @mock /components/rokuComponents/FloatFieldInterpolator.brs
 ' @mock /components/rokuComponents/Vector2DFieldInterpolator.brs
 function TestSuite__AnimatorFactory() as Object
@@ -85,6 +86,7 @@ function TestSuite__AnimatorFactory() as Object
   end function)
 
   ts.addParameterizedTests([
+    { field: "color", key: [0.0, 1.0], keyValue: ["#000000", "#FFFFFF"], type: "color" },
     { field: "opacity", key: [0.0, 1.0], keyValue: [0.0, 1.0], type: "float" },
     { field: "translation", key: [0.0, 1.0], keyValue: [[0.0, 200.0], [400.0, 1200.0]], type: "vector2d" },
   ], "it appends supported ${type} interpolator", function (ts as Object, params as Object) as String
@@ -116,13 +118,19 @@ function TestSuite__AnimatorFactory() as Object
     return ts.assertEqual(constructedInterpolatorFields, expectedInterpolatorFields, "The interpolator has no expected config")
   end function)
 
-  ts.addTest("it creates two interpolators", function (ts as Object) as String
+  ts.addTest("it creates three interpolators", function (ts as Object) as String
     ' Given
     options = {
       delay: Csng(0.2),
       duration: Csng(20),
       easeFunction: "linear",
       fields: [
+        {
+          field: "color",
+          key: [0.0, 1.0],
+          keyValue: ["#000000", "#FFFFFF"],
+          type: "color",
+        },
         {
           field: "opacity",
           key: [0.0, 1.0],
@@ -142,7 +150,7 @@ function TestSuite__AnimatorFactory() as Object
 
     ' Then
 
-    return ts.assertEqual(2, _animation.getChildCount(), "There is no two interpolators")
+    return ts.assertEqual(3, _animation.getChildCount(), "There is no three interpolators")
   end function)
 
   return ts
