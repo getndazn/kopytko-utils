@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/getndazn/kopytko-utils/compare/v2.5.0...v2.6.0) (2023-12-08)
+
+
+### Features
+
+* added support to color field interpolator to AnimatorFactory ([#26](https://github.com/getndazn/kopytko-utils/issues/26)) ([85f4382](https://github.com/getndazn/kopytko-utils/commit/85f4382cebdb0f391cc823f09f1e812dd2fa507c))
+
 # [2.5.0](https://github.com/getndazn/kopytko-utils/compare/v2.4.2...v2.5.0) (2023-11-08)
 
 
