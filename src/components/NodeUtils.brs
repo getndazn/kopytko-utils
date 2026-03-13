@@ -78,6 +78,23 @@ function NodeUtils() as Object
     return node.getChild(childIndex)
   end function
 
+  ' Finds child node by given properties value.
+  ' @example
+  ' ' Given node = <Node><Node user="{ isAdmin: true }"></Node></Node>
+  ' NodeUtils().findChildByProperties(node, { "user.isAdmin": true }) ' Returns the first child
+  ' @param {Node} node
+  ' @param {Object} properties - It can be nested object.
+  ' @returns {Dynamic} - Returns Invalid when node is not found.
+  prototype.findChildByProperties = function (node as Object, properties as Object) as Dynamic
+    childIndex = m.findChildIndexByProperties(node, properties)
+
+    if (childIndex = Invalid)
+      return Invalid
+    end if
+
+    return node.getChild(childIndex)
+  end function
+
   ' Finds child node index by given property value.
   ' @example
   ' ' Given node = <Node><Node user="{ isAdmin: true }"></Node></Node>
@@ -88,6 +105,22 @@ function NodeUtils() as Object
   ' @returns {Dynamic} - Returns Invalid when node is not found.
   prototype.findChildIndexByProperty = function (node as Object, propertyPath as String, value as Dynamic) as Dynamic
     indexVector = m.findChildIndexVectorByProperty(node, propertyPath, value)
+    if (indexVector <> Invalid)
+      return indexVector[0]
+    end if
+
+    return Invalid
+  end function
+
+  ' Finds child node index by given properties value.
+  ' @example
+  ' ' Given node = <Node><Node user="{ isAdmin: true }"></Node></Node>
+  ' NodeUtils().findChildIndexByProperties(node, { "user.isAdmin": true }) ' Returns index 0
+  ' @param {Node} node
+  ' @param {Object} properties - It can be nested object.
+  ' @returns {Dynamic} - Returns Invalid when node is not found.
+  prototype.findChildIndexByProperties = function (node as Object, properties as Object) as Dynamic
+    indexVector = m.findChildIndexVectorByProperties(node, properties)
     if (indexVector <> Invalid)
       return indexVector[0]
     end if
@@ -111,21 +144,43 @@ function NodeUtils() as Object
   ' @param {Integer} [depth=1] - How deep the function should search.
   ' @returns {Dynamic} - Returns Invalid when node is not found.
   prototype.findChildIndexVectorByProperty = function (node as Object, propertyPath as String, value as Dynamic, depth = 1 as Integer) as Dynamic
-    nodeLength = node.getChildCount()
-    if (nodeLength = 0)
-      return Invalid
-    end if
+    properties = {}
+    properties[propertyPath] = value
 
-    for i = 0 to nodeLength - 1
-      child = node.getChild(i)
+    return m.findChildIndexVectorByProperties(node, properties, depth)
+  end function
+
+  ' Finds child node vector by given properties value.
+  ' @example
+  ' ' Given
+  ' ' <Node>
+  ' '  <Node>
+  ' '   <Node></Node>
+  ' '   <Node user="{ isAdmin: true }" device="deviceId"></Node>
+  ' '  </Node>
+  ' ' </Node>
+  ' NodeUtils().findChildIndexVectorByProperties(node, { "user.isAdmin": true, "device": "deviceId" }, 2) ' Returns [0][1]
+  ' @param {Node} node
+  ' @param {Object} properties - It can be nested object.
+  ' @param {Integer} [depth=1] - How deep the function should search.
+  ' @returns {Dynamic} - Returns Invalid when node is not found.
+  prototype.findChildIndexVectorByProperties = function (node as Object, properties as Object, depth = 1 as Integer) as Dynamic
+    nodeLength = node.getChildCount()
+    if (nodeLength = 0) then return Invalid
+
+    for index = 0 to nodeLength - 1
+      child = node.getChild(index)
       if (depth = 1)
-        if (getProperty(child, propertyPath) = value)
-          return [i]
-        end if
+        didAllMatch = true
+        for each propertyPath in properties
+          didAllMatch = didAllMatch AND (getProperty(child, propertyPath) = properties[propertyPath])
+        end for
+
+        if (didAllMatch) then return [index]
       else
-        deeperIndex = m.findChildIndexVectorByProperty(child, propertyPath, value, depth - 1)
+        deeperIndex = m.findChildIndexVectorByProperties(child, properties, depth - 1)
         if (deeperIndex <> Invalid)
-          index = [i]
+          index = [index]
           index.append(deeperIndex)
 
           return index
