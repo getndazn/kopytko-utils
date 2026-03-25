@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/getndazn/kopytko-utils/compare/v2.7.0...v2.7.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* bump packages ([#31](https://github.com/getndazn/kopytko-utils/issues/31)) ([9aaf5a8](https://github.com/getndazn/kopytko-utils/commit/9aaf5a8f6ad3c36caa8267d7cd596490fccaf37b))
+
 # [2.7.0](https://github.com/getndazn/kopytko-utils/compare/v2.6.0...v2.7.0) (2026-03-25)
 
 
