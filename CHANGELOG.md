@@ -1,3 +1,16 @@
+# [2.7.0](https://github.com/getndazn/kopytko-utils/compare/v2.6.0...v2.7.0) (2026-03-25)
+
+
+### Bug Fixes
+
+* add semantic release packages ([#30](https://github.com/getndazn/kopytko-utils/issues/30)) ([3ab97f5](https://github.com/getndazn/kopytko-utils/commit/3ab97f5f9bd14719c63732114e4c0f99e9b22b5d))
+* bump packages ([#29](https://github.com/getndazn/kopytko-utils/issues/29)) ([b2b7fea](https://github.com/getndazn/kopytko-utils/commit/b2b7fea9589a9648bbdc4badb49a7916c2d5f048))
+
+
+### Features
+
+* add find functions to the NodeUtils for multiple properties ([#28](https://github.com/getndazn/kopytko-utils/issues/28)) ([7975fc9](https://github.com/getndazn/kopytko-utils/commit/7975fc91649dbc58743ee7cdf397f6e407f42708))
+
 # [2.6.0](https://github.com/getndazn/kopytko-utils/compare/v2.5.0...v2.6.0) (2023-12-08)
 
 
