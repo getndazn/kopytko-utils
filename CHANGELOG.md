@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/getndazn/kopytko-utils/compare/v2.7.1...v2.7.2) (2026-03-25)
+
+
+### Bug Fixes
+
+* update dependencies with node 24 ([#32](https://github.com/getndazn/kopytko-utils/issues/32)) ([66c0c90](https://github.com/getndazn/kopytko-utils/commit/66c0c9037474fe147e6fc7dbd150c9b6ffe90c78))
+
 ## [2.7.1](https://github.com/getndazn/kopytko-utils/compare/v2.7.0...v2.7.1) (2026-03-25)
 
 
