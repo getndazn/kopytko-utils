@@ -25,8 +25,8 @@
   },
   "devDependencies": {
     "@dazn/eslint-plugin-kopytko": "^2.1.0",
-    "@dazn/kopytko-packager": "^1.4.1",
-    "@dazn/kopytko-unit-testing-framework": "^2.5.1",
+    "@dazn/kopytko-packager": "^1.4.2",
+    "@dazn/kopytko-unit-testing-framework": "^2.5.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
