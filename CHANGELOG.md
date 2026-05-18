@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/getndazn/kopytko-utils/compare/v2.7.2...v2.8.0) (2026-05-18)
+
+
+### Features
+
+* params could be an array of key, value objects to preserve order ([#33](https://github.com/getndazn/kopytko-utils/issues/33)) ([4f3e3eb](https://github.com/getndazn/kopytko-utils/commit/4f3e3eb81e16224cefd508a9252d34402906023e))
+
 ## [2.7.2](https://github.com/getndazn/kopytko-utils/compare/v2.7.1...v2.7.2) (2026-03-25)
 
 
