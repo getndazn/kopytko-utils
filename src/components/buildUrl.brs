@@ -1,3 +1,6 @@
+
+' @import /components/getType.brs
+
 ' Compose url with query strings. Values are encoded.
 ' @example
 ' ?buildUrl("http://myurl.com", { queryString: "123" })
@@ -14,20 +17,37 @@ function buildUrl(path as String, params = Invalid as Object) as String
   end if
 
   paramParts = []
-  for each paramKey in params.keys()
-    rawValue = params[paramKey]
-    value = Invalid
+  if (getType(params) = "roAssociativeArray")
+    for each paramKey in params.keys()
+      rawValue = params[paramKey]
+      value = Invalid
 
-    if (rawValue <> Invalid AND GetInterface(rawValue, "ifToStr") <> Invalid)
-      value = rawValue.toStr()
-    end if
+      if (rawValue <> Invalid AND GetInterface(rawValue, "ifToStr") <> Invalid)
+        value = rawValue.toStr()
+      end if
 
-    if (value <> Invalid AND value <> "")
-      paramParts.push(paramKey.encodeUriComponent() + "=" + value.encodeUriComponent())
-    else
-      ?"buildUrl: '";paramKey;"' param is ignored because it can't be converted to string"
-    end if
-  end for
+      if (value <> Invalid AND value <> "")
+        paramParts.push(paramKey.encodeUriComponent() + "=" + value.encodeUriComponent())
+      else
+        ?"buildUrl: '";paramKey;"' param is ignored because it can't be converted to string"
+      end if
+    end for
+  else if (getType(params) = "roArray")
+    for each param in params
+      rawValue = param.value
+      value = Invalid
+
+      if (rawValue <> Invalid AND GetInterface(rawValue, "ifToStr") <> Invalid)
+        value = rawValue.toStr()
+      end if
+
+      if (value <> Invalid AND value <> "")
+        paramParts.push(param.key.encodeUriComponent() + "=" + value.encodeUriComponent())
+      else
+        ?"buildUrl: '";param.key;"' param is ignored because it can't be converted to string"
+      end if
+    end for
+  end if
 
   if (paramParts.count() = 0)
     return encodedPath
