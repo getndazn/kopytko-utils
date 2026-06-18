@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_find()
+function TestSuite__ArrayUtils_find() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - find"
 

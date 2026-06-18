@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_map()
+function TestSuite__ArrayUtils_map() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - map"
 
@@ -31,7 +31,7 @@ function TestSuite__ArrayUtils_map()
     expectedResult = ["item-1", "same name", "item-3"]
 
     ' When
-    result = ts.__arrayUtils.map(arrayToMap, function (item as Object, name) as Object
+    result = ts.__arrayUtils.map(arrayToMap, function (item as Object, name as String) as Object
       if (item.name <> name)
         return item.name
       end if

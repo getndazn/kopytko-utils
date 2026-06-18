@@ -1,4 +1,4 @@
-function TestSuite__ObjectUtils_invert()
+function TestSuite__ObjectUtils_invert() as Object
   ts = ObjectUtilsTestSuite()
   ts.name = "ObjectUtils - invert"
 

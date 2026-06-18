@@ -1,10 +1,11 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/reactiveX/RxSubject.brs
+
 function TestSuite__rxCombineLatest() as Object
   ts = KopytkoTestSuite()
   ts.name = "rxCombineLatest"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__streamValues = []
   end sub)
 
@@ -18,7 +19,6 @@ function TestSuite__rxCombineLatest() as Object
 
     ' When
     subjects[subjectToEmit].next("any")
-
     ' Then
     return ts.assertTrue(m.__streamValues.isEmpty())
   end function)
@@ -34,7 +34,6 @@ function TestSuite__rxCombineLatest() as Object
     ' When
     subjects[0].next("first")
     subjects[1].next("second")
-
     ' Then
     return ts.assertEqual(m.__streamValues, [["first", "second"]])
   end function)
@@ -52,7 +51,6 @@ function TestSuite__rxCombineLatest() as Object
     subjects[1].next("second")
     subjects[1].next("another second")
     subjects[0].next("first another")
-
     ' Then
     return ts.assertEqual(m.__streamValues, [["first", "second"], ["first", "another second"], ["first another", "another second"]])
   end function)

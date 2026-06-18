@@ -1,4 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__ternary() as Object
   ts = KopytkoTestSuite()
   ts.name = "ternary"

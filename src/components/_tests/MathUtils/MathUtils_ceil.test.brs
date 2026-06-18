@@ -1,4 +1,4 @@
-function TestSuite__MathUtils_ceil()
+function TestSuite__MathUtils_ceil() as Object
   ts = MathUtilsTestSuite()
   ts.name = "MathUtils - ceil"
 

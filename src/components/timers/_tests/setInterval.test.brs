@@ -1,6 +1,6 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/rokuComponents/_mocks/Event.mock.brs
-' @import /components/timers/clearInterval.brs
+
 function TestSuite__setInterval() as Object
   ts = KopytkoTestSuite()
   ts.name = "setInterval"
@@ -31,9 +31,9 @@ function TestSuite__setInterval() as Object
     intervalId = setInterval(sub (): end sub, 0.2)
 
     ' Then
-    timer = m["$$setIntervalData"][intervalId].timer
+    timerObject = m["$$setIntervalData"][intervalId].timer
 
-    return ts.assertNotInvalid(timer, "The timer was not stored")
+    return ts.assertNotInvalid(timerObject, "The timer was not stored")
   end function)
 
   ts.addTest("it calls the passed callback when its timer is fired", function (ts as Object) as String

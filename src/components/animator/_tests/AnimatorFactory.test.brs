@@ -3,11 +3,12 @@
 ' @mock /components/rokuComponents/ColorFieldInterpolator.brs
 ' @mock /components/rokuComponents/FloatFieldInterpolator.brs
 ' @mock /components/rokuComponents/Vector2DFieldInterpolator.brs
+
 function TestSuite__AnimatorFactory() as Object
   ts = KopytkoTestSuite()
   ts.name = "AnimatorFactory"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__animatorFactory = AnimatorFactory()
   end sub)
 

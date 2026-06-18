@@ -16,7 +16,7 @@ function rxCombineLatest(observables as Object) as Object
         values: values,
       }
       observable = sources[i]
-      observable.subscribe(sub (value)
+      observable.subscribe(sub (value as Dynamic)
         ' m is sourceSubscriberContext
         m.values[m.index] = value
 

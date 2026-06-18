@@ -39,7 +39,6 @@ sub setTimeout_onTimerFired(event as Object)
 
   if (timeoutData <> Invalid)
     functionCall(timeoutData.callback, [], timeoutData.context)
-
     m["$$setTimeoutData"].delete(timerId)
   end if
 end sub

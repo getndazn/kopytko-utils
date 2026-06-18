@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_contains()
+function TestSuite__ArrayUtils_contains() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - contains"
 

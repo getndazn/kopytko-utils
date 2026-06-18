@@ -1,4 +1,4 @@
-function TestSuite__Animator_fade()
+function TestSuite__Animator_fade() as Object
   ts = AnimatorTestSuite()
   ts.name = "Animator - fade"
 

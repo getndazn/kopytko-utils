@@ -1,5 +1,6 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/rokuComponents/_mocks/Event.mock.brs
+
 function TestSuite__setTimeout() as Object
   ts = KopytkoTestSuite()
   ts.name = "setTimeout"
@@ -30,9 +31,9 @@ function TestSuite__setTimeout() as Object
     timeoutId = setTimeout(sub (): end sub, 0.2)
 
     ' Then
-    timer = m["$$setTimeoutData"][timeoutId].timer
+    timerObject = m["$$setTimeoutData"][timeoutId].timer
 
-    return ts.assertNotInvalid(timer, "The timer was not stored")
+    return ts.assertNotInvalid(timerObject, "The timer was not stored")
   end function)
 
   ts.addTest("it calls the passed callback when its timer is fired", function (ts as Object) as String

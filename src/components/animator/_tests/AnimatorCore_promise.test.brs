@@ -1,4 +1,4 @@
-function TestSuite__AnimatorCore_promise()
+function TestSuite__AnimatorCore_promise() as Object
   ts = AnimatorCoreTestSuite()
   ts.name = "AnimatorCore - promise"
 

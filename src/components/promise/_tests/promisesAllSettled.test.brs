@@ -2,19 +2,20 @@
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseReject.brs
 ' @import /components/promise/PromiseResolve.brs
-function TestSuite__PromisesAllSettled() as object
+
+function TestSuite__PromisesAllSettled() as Object
   ts = KopytkoTestSuite()
   ts.name = "promisesAllSettled"
 
-  ts.setBeforeEach(sub (ts as object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__timesRejected = 0
     m.__timesResolved = 0
 
-    m.__rejectedValue = invalid
-    m.__resolvedValue = invalid
+    m.__rejectedValue = Invalid
+    m.__resolvedValue = Invalid
   end sub)
 
-  ts.addTest("should return a promise", function(ts as object) as string
+  ts.addTest("should return a promise", function(ts as Object) as String
     ' Given
     firstPromise = Promise()
     secondPromise = Promise()
@@ -26,7 +27,7 @@ function TestSuite__PromisesAllSettled() as object
     return ts.assertTrue(finalPromise.doesExist("_isPromise"))
   end function)
 
-  ts.addTest("should be pending if not all promises have either resolved or rejected", function(ts as object) as string
+  ts.addTest("should be pending if not all promises have either resolved or rejected", function(ts as Object) as String
     ' Given
     firstPromise = Promise()
     secondPromise = Promise()
@@ -43,7 +44,7 @@ function TestSuite__PromisesAllSettled() as object
     return ts.assertEqual(finalPromise.STATUS_PENDING, finalPromise.status)
   end function)
 
-  ts.addTest("should be fulfilled if all promises have either resolved or rejected", function(ts as object) as string
+  ts.addTest("should be fulfilled if all promises have either resolved or rejected", function(ts as Object) as String
     ' Given
     firstPromise = Promise()
     secondPromise = Promise()
@@ -61,7 +62,7 @@ function TestSuite__PromisesAllSettled() as object
     return ts.assertEqual(finalPromise.STATUS_FULFILLED, finalPromise.status)
   end function)
 
-  ts.addTest("should resolve an array of objects [status, value] if all promises have either resolved or rejected", function(ts as object) as string
+  ts.addTest("should resolve an array of objects [status, value] if all promises have either resolved or rejected", function(ts as Object) as String
     ' Given
     firstPromise = Promise()
     secondPromise = Promise()
@@ -76,11 +77,11 @@ function TestSuite__PromisesAllSettled() as object
     ' Then
     return ts.assertEqual(m.__resolvedValue, [
       { status: finalPromise.STATUS_FULFILLED, value: "first value" },
-      { status: finalPromise.STATUS_REJECTED, value: "rejected value" }
+      { status: finalPromise.STATUS_REJECTED, value: "rejected value" },
     ])
   end function)
 
-  ts.addTest("should resolve an array of objects [status, value] in promises order if all promises have either resolved or rejected", function(ts as object) as string
+  ts.addTest("should resolve an array of objects [status, value] in promises order if all promises have either resolved or rejected", function(ts as Object) as String
     ' Given
     firstPromise = Promise()
     secondPromise = Promise()
@@ -95,11 +96,11 @@ function TestSuite__PromisesAllSettled() as object
     ' Then
     return ts.assertEqual(m.__resolvedValue, [
       { status: finalPromise.STATUS_FULFILLED, value: "first value" },
-      { status: finalPromise.STATUS_REJECTED, value: "rejected value" }
+      { status: finalPromise.STATUS_REJECTED, value: "rejected value" },
     ])
   end function)
 
-  ts.addTest("should immediately resolve an empty array of promises", function(ts as object) as string
+  ts.addTest("should immediately resolve an empty array of promises", function(ts as Object) as String
     ' Given
     finalPromise = promisesAllSettled([])
 
@@ -110,7 +111,7 @@ function TestSuite__PromisesAllSettled() as object
     return ts.assertEqual(m.__timesResolved, 1)
   end function)
 
-  ts.addTest("should immediately resolve an empty array of promises with empty array as an argument", function(ts as object) as string
+  ts.addTest("should immediately resolve an empty array of promises with empty array as an argument", function(ts as Object) as String
     ' Given
     emptyArray = []
     finalPromise = promisesAllSettled(emptyArray)
@@ -122,7 +123,7 @@ function TestSuite__PromisesAllSettled() as object
     return ts.assertEqual(m.__resolvedValue, emptyArray)
   end function)
 
-  ts.addTest("should immediately resolve for an array of resolved or rejected promises", function(ts as object) as string
+  ts.addTest("should immediately resolve for an array of resolved or rejected promises", function(ts as Object) as String
     ' Given
     firstPromise = PromiseResolve("first value")
     secondPromise = PromiseReject("rejected value")
@@ -134,19 +135,19 @@ function TestSuite__PromisesAllSettled() as object
     ' Then
     return ts.assertEqual(m.__resolvedValue, [
       { status: finalPromise.STATUS_FULFILLED, value: "first value" },
-      { status: finalPromise.STATUS_REJECTED, value: "rejected value" }
+      { status: finalPromise.STATUS_REJECTED, value: "rejected value" },
     ])
   end function)
 
   return ts
 end function
 
-sub onResolve(value as dynamic)
+sub onResolve(value as Dynamic)
   m.__timesResolved++
   m.__resolvedValue = value
 end sub
 
-sub onReject(value as dynamic)
+sub onReject(value as Dynamic)
   m.__timesRejected++
   m.__rejectedValue = value
 end sub

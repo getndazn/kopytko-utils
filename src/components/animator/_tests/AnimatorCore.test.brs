@@ -2,14 +2,15 @@
 ' @import /components/getProperty.brs
 ' @mock /components/animator/AnimatorFactory.brs
 ' @mock /components/rokuComponents/Animation.brs
+
 function AnimatorCoreTestSuite() as Object
   ts = KopytkoTestSuite()
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__mocks = {}
     m.__mocks.animatorFactory = {
       createAnimation: {
-        getReturnValue: function (params as Object, m as Object) as Object
+        getReturnValue: function (params as Object, _m as Object) as Object
           _animation = Animation()
           _animation.id = params.name
 
@@ -21,7 +22,7 @@ function AnimatorCoreTestSuite() as Object
     m.__animator = AnimatorCore()
   end sub)
 
-  ts.setAfterEach(sub (ts as Object)
+  ts.setAfterEach(sub (_ts as Object)
     m.__animator.destroy()
     m.delete("$$animatorContexts")
   end sub)

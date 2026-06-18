@@ -22,7 +22,7 @@ function _uuidGetRandomHexString(length as Integer) as String
   hexCharsNumber = Len(hexChars)
   hexString = ""
 
-  for i = 1 to length
+  for _i = 1 to length
     hexString += hexChars.mid(Rnd(hexCharsNumber) - 1, 1)
   end for
 

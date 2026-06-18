@@ -1,9 +1,10 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/animator/AnimatorCore.brs
+
 function AnimatorTestSuite() as Object
   ts = KopytkoTestSuite()
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__animator = Animator()
 
     m.__mocks = {}

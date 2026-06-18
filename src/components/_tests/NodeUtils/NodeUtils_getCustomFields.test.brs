@@ -1,4 +1,4 @@
-function TestSuite__NodeUtils_getCustomFields()
+function TestSuite__NodeUtils_getCustomFields() as Object
   ts = NodeUtilsTestSuite()
   ts.name = "NodeUtils - getCustomFields"
 

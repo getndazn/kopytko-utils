@@ -1,4 +1,4 @@
-function TestSuite__Animator_translateX()
+function TestSuite__Animator_translateX() as Object
   ts = AnimatorTestSuite()
   ts.name = "Animator - translateX"
 

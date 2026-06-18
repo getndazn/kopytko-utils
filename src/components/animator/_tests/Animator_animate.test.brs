@@ -1,4 +1,4 @@
-function TestSuite__Animator_animate()
+function TestSuite__Animator_animate() as Object
   ts = AnimatorTestSuite()
   ts.name = "Animator - animate"
 

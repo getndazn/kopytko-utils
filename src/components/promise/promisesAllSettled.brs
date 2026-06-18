@@ -1,7 +1,7 @@
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseResolve.brs
 
-' Takes an array of promises as an input and returns a promise that resolves after all of the given promises have either fulfilled or rejected, 
+' Takes an array of promises as an input and returns a promise that resolves after all of the given promises have either fulfilled or rejected,
 ' with an array of objects that each describes the outcome of each promise.
 ' @param {Promise[]} promiseInstances
 ' @returns {Promise}
@@ -16,7 +16,7 @@ function promisesAllSettled(promiseInstances as Object) as Object
     promise: Promise(),
   }
 
-  context.onPromiseSettled = sub (value as Object, m as Object)
+  context.onPromiseSettled = sub (_value as Object, m as Object)
     m.settledPromisesCount++
     if (m.settledPromisesCount = m.promises.count())
       promisesValues = []

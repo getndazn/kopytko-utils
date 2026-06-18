@@ -1,4 +1,4 @@
-function TestSuite__Animator_finishAll()
+function TestSuite__Animator_finishAll() as Object
   ts = AnimatorTestSuite()
   ts.name = "Animator - finishAll"
 

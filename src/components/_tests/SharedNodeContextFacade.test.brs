@@ -1,9 +1,10 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__SharedNodeContextFacade() as Object
   ts = KopytkoTestSuite()
   ts.name = "SharedNodeContextFacade"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m._sharedNodeContext = Invalid
     ' #orderMatters
     m.__sharedContext = SharedNodeContextFacade()

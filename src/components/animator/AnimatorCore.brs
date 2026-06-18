@@ -121,7 +121,7 @@ function AnimatorCore() as Object
           keyValue: options.keyValue,
           reverse: options.reverse,
           type: element.getFieldTypes()[field],
-        }
+        },
       ],
     }
   end function

@@ -1,9 +1,10 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__Promise() as Object
   ts = KopytkoTestSuite()
   ts.name = "Promise"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__timesRejected = 0
     m.__timesResolved = 0
     m.__timesFinallyCalled = 0
@@ -244,7 +245,7 @@ sub onRejectWithContext(value as Dynamic, context as Object)
   m.__lastRejectedContext = context
 end sub
 
-sub onFinally(arg1 = Invalid as Dynamic)
+sub onFinally(_arg1 = Invalid as Dynamic)
   m.__timesFinallyCalled++
 end sub
 

@@ -1,15 +1,16 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/timers/clearTimeout.brs
 ' @mock /components/timers/setTimeout.brs
+
 function TestSuite__Debouncer() as Object
   ts = KopytkoTestSuite()
   ts.name = "Debouncer"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__mocks = {}
     m.__mocks.setTimeout = {
       calls: [],
-      getReturnValue: sub (params as Object, m as Object):
+      getReturnValue: sub (_params as Object, m as Object):
         callback = m.__mocks.setTimeout.calls[m.__mocks.setTimeout.calls.count() - 1].params.callback
         callback()
       end sub,

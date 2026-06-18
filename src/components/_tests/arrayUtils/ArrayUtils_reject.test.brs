@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_reject()
+function TestSuite__ArrayUtils_reject() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - reject"
 
@@ -52,7 +52,7 @@ function TestSuite__ArrayUtils_reject()
     expectedResult = []
 
     ' When
-    result = ts.__arrayUtils.reject(arrayToReject, function (item as Object) as Object
+    result = ts.__arrayUtils.reject(arrayToReject, function (_item as Object) as Object
       return true
     end function)
 

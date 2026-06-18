@@ -1,4 +1,4 @@
-function TestSuite__MathUtils_toRadians()
+function TestSuite__MathUtils_toRadians() as Object
   ts = MathUtilsTestSuite()
   ts.name = "MathUtils - toRadians"
 
