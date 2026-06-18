@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@dazn/kopytko-packager": "^1.4.2",
-    "@dazn/kopytko-unit-testing-framework": "^2.6.4",
+    "@dazn/kopytko-unit-testing-framework": "^2.6.5",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.8",
