@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/getndazn/kopytko-utils/compare/v2.8.0...v2.8.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* add formatter and linter ([#34](https://github.com/getndazn/kopytko-utils/issues/34)) ([60a7ac7](https://github.com/getndazn/kopytko-utils/commit/60a7ac737076ee02589dbec44c1ab2b4b418c5a0))
+
 # [2.8.0](https://github.com/getndazn/kopytko-utils/compare/v2.7.2...v2.8.0) (2026-05-18)
 
 
