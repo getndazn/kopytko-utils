@@ -1,4 +1,4 @@
-function TestSuite__ObjectUtils_merge()
+function TestSuite__ObjectUtils_merge() as Object
   ts = ObjectUtilsTestSuite()
   ts.name = "ObjectUtils - merge"
 

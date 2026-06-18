@@ -1,4 +1,4 @@
-function TestSuite__AnimatorCore_stopAll()
+function TestSuite__AnimatorCore_stopAll() as Object
   ts = AnimatorCoreTestSuite()
   ts.name = "AnimatorCore - stopAll"
 

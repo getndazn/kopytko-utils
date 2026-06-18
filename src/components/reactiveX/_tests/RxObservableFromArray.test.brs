@@ -1,11 +1,12 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/reactiveX/RxSubscriber.brs
 ' @mock /components/reactiveX/RxSubscription.brs
+
 function TestSuite__RxObservableFromArray() as Object
   ts = KopytkoTestSuite()
   ts.name = "RxObservableFromArray"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__observer = { "next": "observer.next", error: "observer.error", complete: "observer.complete" }
   end sub)
 

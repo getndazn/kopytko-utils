@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_sortBy()
+function TestSuite__ArrayUtils_sortBy() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - sortBy"
 

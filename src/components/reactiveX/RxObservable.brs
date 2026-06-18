@@ -47,7 +47,6 @@ function RxObservable(subscribe as Function, data = Invalid as Dynamic) as Objec
     end if
 
     subscriber._unsubscribe = m._subscribe(subscriber, m._data)
-
     return RxSubscription(subscriber, m)
   end function
 

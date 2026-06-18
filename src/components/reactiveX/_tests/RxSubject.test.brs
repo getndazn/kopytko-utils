@@ -1,9 +1,10 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__RxSubject() as Object
   ts = KopytkoTestSuite()
   ts.name = "RxSubject"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__context1 = {
       nextValue: Invalid,
       errorValue: Invalid,

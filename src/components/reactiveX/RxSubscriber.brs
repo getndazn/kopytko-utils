@@ -45,7 +45,6 @@ function RxSubscriber(handlers as Object, context as Object) as Object
     if (m._isUnsubscribed) then return
 
     functionCall(m._handlers.error, [error], m._context)
-
     m.unsubscribe(observable)
   end sub
 
@@ -55,7 +54,6 @@ function RxSubscriber(handlers as Object, context as Object) as Object
     if (m._isUnsubscribed) then return
 
     functionCall(m._handlers.complete, [], m._context)
-
     m.unsubscribe(observable)
   end sub
 

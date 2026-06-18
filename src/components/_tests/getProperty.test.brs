@@ -1,4 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__getProperty() as Object
   ts = KopytkoTestSuite()
   ts.name = "getProperty"

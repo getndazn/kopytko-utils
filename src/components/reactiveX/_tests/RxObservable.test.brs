@@ -1,16 +1,16 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @mock /components/reactiveX/RxSubscriber.brs
 ' @mock /components/reactiveX/RxSubscription.brs
+
 function TestSuite__RxObservable() as Object
   ts = KopytkoTestSuite()
   ts.name = "RxObservable"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__emptySub = sub ()
     end sub
     m.__exampleObserver = { "next": "observer.next", error: "observer.error", complete: "observer.complete" }
-    m.__subscribe = sub (subscriber as Object, data as Object)
-    end sub
+    m.__subscribe = sub (_subscriber as Object, _data as Object) : end sub
   end sub)
 
   ts.addTest("subscribe returns Invalid if wrong observerOrNext parameter passed", function (ts as Object) as Object
@@ -140,7 +140,6 @@ function TestSuite__RxObservable() as Object
 
     ' Then
     subscriber = m.__mocks.RxSubscriber.instance
-
     return ts.assertEqual(subscriber._unsubscribe, { subscriberId: subscriberId, data: data })
   end function)
 

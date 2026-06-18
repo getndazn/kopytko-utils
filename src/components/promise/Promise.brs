@@ -69,9 +69,9 @@ function Promise() as Object
     end if
 
     if (m.status = m.STATUS_FULFILLED)
-      return PromiseResolve(result)
+      return PromiseResolve(result) ' kopytko-disable-line identifier/undefined-function
     else
-      return PromiseReject(result)
+      return PromiseReject(result) ' kopytko-disable-line identifier/undefined-function
     end if
   end function
 
@@ -139,7 +139,7 @@ function Promise() as Object
           else ' result is an PromiseReject() object
             callback.promise.reject(result.value)
           end if
-        ' Chained promise should be rejected when failure was not handled, otherwise it should be resolved
+          ' Chained promise should be rejected when failure was not handled, otherwise it should be resolved
         else if (NOT isResolved AND callbackAction = Invalid)
           callback.promise.reject(argument)
         else

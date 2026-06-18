@@ -1,12 +1,13 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/timers/setInterval.brs
+
 function TestSuite__clearInterval() as Object
   ts = KopytkoTestSuite()
   ts.name = "clearInterval"
 
   ts.addTest("it removes the timeout from the $$setIntervalData property when calling clearInterval passing the interval Id", function (ts as Object) as String
     ' Given
-    intervalId = setInterval(sub (): end sub, 0.2)
+    intervalId = setInterval(sub () : end sub, 0.2)
 
     ' When
     clearInterval(intervalId)

@@ -1,4 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__uuid() as Object
   ts = KopytkoTestSuite()
   ts.name = "uuid"
@@ -25,7 +26,7 @@ function TestSuite__uuid() as Object
     hashes2 = []
 
     ' When
-    for i = 0 to 50
+    for _i = 0 to 50
       hashes1.push(uuid())
       hashes2.push(uuid())
     end for

@@ -1,4 +1,4 @@
-function TestSuite__NodeUtils_forEachChild()
+function TestSuite__NodeUtils_forEachChild() as Object
   ts = NodeUtilsTestSuite()
   ts.name = "NodeUtils - forEachChild"
 
@@ -8,7 +8,7 @@ function TestSuite__NodeUtils_forEachChild()
     m.__wasActionApplied = false
 
     ' When
-    actualResult = ts.__nodeUtils.forEachChild(node, sub (child as Object, m as Object)
+    ts.__nodeUtils.forEachChild(node, sub (_child as Object, m as Object)
       m.__wasActionApplied = true
     end sub, m)
 
@@ -25,7 +25,7 @@ function TestSuite__NodeUtils_forEachChild()
     childrenWithAppliedAction = []
 
     ' When
-    actualResult = ts.__nodeUtils.forEachChild(node, sub (child as Object, index as Integer, m as Object)
+    ts.__nodeUtils.forEachChild(node, sub (child as Object, _index as Integer, m as Object)
       m.childrenWithAppliedAction.push(child.id)
     end sub, { childrenWithAppliedAction: childrenWithAppliedAction })
 

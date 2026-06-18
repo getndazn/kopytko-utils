@@ -2,11 +2,12 @@
 ' @import /components/promise/Promise.brs
 ' @import /components/promise/PromiseReject.brs
 ' @import /components/promise/PromiseResolve.brs
+
 function TestSuite__PromisesAny() as Object
   ts = KopytkoTestSuite()
   ts.name = "promisesAny"
 
-  ts.setBeforeEach(sub (ts as Object)
+  ts.setBeforeEach(sub (_ts as Object)
     m.__timesRejected = 0
     m.__timesResolved = 0
 

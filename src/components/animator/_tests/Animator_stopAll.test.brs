@@ -1,4 +1,4 @@
-function TestSuite__Animator_stopAll()
+function TestSuite__Animator_stopAll() as Object
   ts = AnimatorTestSuite()
   ts.name = "Animator - stopAll"
 

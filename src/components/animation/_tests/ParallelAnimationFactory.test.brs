@@ -1,6 +1,7 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
 ' @import /components/rokuComponents/Animation.brs
 ' @mock /components/animator/AnimatorFactory.brs
+
 function TestSuite__ParallelAnimationFactory() as Object
   ts = KopytkoTestSuite()
   ts.name = "ParallelAnimatorFactory"
@@ -62,8 +63,8 @@ function TestSuite__ParallelAnimationFactory() as Object
           optional: false,
           repeat: false,
           fields: [
-            { field: "opacity", type: "float" }
-            { field: "translation", type: "vector2d" }
+            { field: "opacity", type: "float" },
+            { field: "translation", type: "vector2d" },
           ],
         },
       },
@@ -84,8 +85,8 @@ function TestSuite__ParallelAnimationFactory() as Object
         optional: options.animations.elementOne.optional,
         repeat: options.animations.elementOne.repeat,
         fields: options.animations.elementOne.fields,
-        },
-      }
+      },
+    }
 
     return expect("AnimatorFactory.createAnimation").toHaveBeenCalledWith(expectedConfig, { times: 1 })
   end function)
@@ -105,8 +106,8 @@ function TestSuite__ParallelAnimationFactory() as Object
           optional: false,
           repeat: false,
           fields: [
-            { field: "opacity", type: "float" }
-            { field: "translation", type: "vector2d" }
+            { field: "opacity", type: "float" },
+            { field: "translation", type: "vector2d" },
           ],
         },
         elementTwo: {
@@ -118,7 +119,7 @@ function TestSuite__ParallelAnimationFactory() as Object
           optional: false,
           repeat: false,
           fields: [
-            { field: "color", type: "color" }
+            { field: "color", type: "color" },
           ],
         },
       },

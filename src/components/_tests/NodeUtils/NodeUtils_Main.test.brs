@@ -1,4 +1,4 @@
-function TestSuite__NodeUtils_Main()
+function TestSuite__NodeUtils_Main() as Object
   ts = NodeUtilsTestSuite()
   ts.name = "NodeUtils - Main"
 

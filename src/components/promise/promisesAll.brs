@@ -16,7 +16,7 @@ function promisesAll(promiseInstances as Object) as Object
     promise: Promise(),
   }
 
-  context.onPromiseFulfilled = sub (value as Object, m as Object)
+  context.onPromiseFulfilled = sub (_value as Object, m as Object)
     m.fulfilledPromisesCount++
     if (m.fulfilledPromisesCount = m.promises.count())
       promisesValues = []

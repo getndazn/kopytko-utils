@@ -1,4 +1,5 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
+
 function TestSuite__buildUrl() as Object
   ts = KopytkoTestSuite()
   ts.name = "buildUrl"
@@ -81,7 +82,7 @@ function TestSuite__buildUrl() as Object
   ts.addTest("ignores parameters that can't be converted to non-empty string", function (ts as Object) as String
     ' Given
     path = "/example-path"
-    params = { param1: "", param2: ["p2"], param3: { p3: "p3"}, param4: CreateObject("roSGNode", "Node"), param5: invalid }
+    params = { param1: "", param2: ["p2"], param3: { p3: "p3" }, param4: CreateObject("roSGNode", "Node"), param5: Invalid }
     expectedUrl = "/example-path"
 
     ' When
@@ -145,7 +146,7 @@ function TestSuite__buildUrl() as Object
   ts.addTest("ignores array parameters that can't be converted to non-empty string", function (ts as Object) as String
     ' Given
     path = "/example-path"
-    params = [{ key: "param1", value: "" }, { key: "param2", value: invalid }]
+    params = [{ key: "param1", value: "" }, { key: "param2", value: Invalid }]
     expectedUrl = "/example-path"
 
     ' When

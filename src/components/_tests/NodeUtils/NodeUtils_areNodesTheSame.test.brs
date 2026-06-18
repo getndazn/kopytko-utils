@@ -1,4 +1,4 @@
-function TestSuite__NodeUtils_areNodesTheSame()
+function TestSuite__NodeUtils_areNodesTheSame() as Object
   ts = NodeUtilsTestSuite()
   ts.name = "NodeUtils - areNodesTheSame"
 

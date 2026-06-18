@@ -200,7 +200,7 @@ function ArrayUtils() as Object
   ' @param {Function} sortByFunction - It should return any sortable type that can be procesed by ifArraySort.SortBy function.
   ' @param {Dynamic} [scopedData=Invalid] - Any data that is passed to predicate to deal with BrightScript variable scope.
   ' @returns {Array}
-  prototype.sortBy = function(array as Object, sortByFunction as Function, scopedData = Invalid as Object) as Object
+  prototype.sortBy = function (array as Object, sortByFunction as Function, scopedData = Invalid as Object) as Object
     sortedArray = []
 
     if (scopedData <> Invalid)

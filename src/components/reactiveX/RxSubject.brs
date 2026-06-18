@@ -1,6 +1,5 @@
 ' @import /components/ArrayUtils.brs
 ' @import /components/reactiveX/RxObservable.brs
-' @import /components/reactiveX/RxSubscription.brs
 
 ' Based on https://rxjs-dev.firebaseapp.com/api/index/class/Subject
 ' Every Subject is an Observable and an Observer. You can subscribe to a Subject, and you can call next to feed values
@@ -8,7 +7,7 @@
 ' @class
 ' @augments RxObservable
 function RxSubject() as Object
-  prototype = RxObservable(function (subscriber as Object, data as Dynamic) as Function
+  prototype = RxObservable(function (subscriber as Object, _data as Dynamic) as Function
     m._subscribers.push(subscriber)
 
     return sub (subscriber as Object)
@@ -66,7 +65,6 @@ function RxSubject() as Object
   prototype.asObservable = function () as Object
     return RxObservable(function (subscriber as Object, subject as Dynamic) as Function
       subject._subscribers.push(subscriber)
-
       return sub (subscriber as Object)
         ArrayUtils().pick(m._subscribers, { id: subscriber.id })
       end sub

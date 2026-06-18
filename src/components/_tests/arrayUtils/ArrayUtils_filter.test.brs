@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_filter()
+function TestSuite__ArrayUtils_filter() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - filter"
 
@@ -34,7 +34,7 @@ function TestSuite__ArrayUtils_filter()
     ]
 
     ' When
-    result = ts.__arrayUtils.filter(arrayToFilter, function (item as Object) as Object
+    result = ts.__arrayUtils.filter(arrayToFilter, function (_item as Object) as Object
       return true
     end function)
 

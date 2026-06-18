@@ -1,5 +1,6 @@
 ' @import /components/KopytkoTestSuite.brs from @dazn/kopytko-unit-testing-framework
-function ArrayUtilsTestSuite()
+
+function ArrayUtilsTestSuite() as Object
   ts = KopytkoTestSuite()
 
   ts.setBeforeEach(sub (ts as Object)

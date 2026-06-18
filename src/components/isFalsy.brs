@@ -1,4 +1,5 @@
 ' @import /components/getType.brs
+
 function isFalsy(value as Dynamic) as Boolean
   falsyValues = [Invalid, false, "", 0]
   valueType = getType(value)

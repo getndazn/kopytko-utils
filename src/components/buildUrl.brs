@@ -1,4 +1,3 @@
-
 ' @import /components/getType.brs
 
 ' Compose url with query strings. Values are encoded.

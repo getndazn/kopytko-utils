@@ -1,4 +1,4 @@
-function TestSuite__ArrayUtils_slice()
+function TestSuite__ArrayUtils_slice() as Object
   ts = ArrayUtilsTestSuite()
   ts.name = "ArrayUtils - slice"
 

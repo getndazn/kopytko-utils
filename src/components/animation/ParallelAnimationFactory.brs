@@ -14,7 +14,7 @@ function ParallelAnimationFactory() as Object
   ' @param {Object.<string, AnimatorFactory~Options>} options.animations
   ' @param {Node} element
   ' @returns {Object} - ParallelAnimation component
-  prototype.createAnimation = function(name as String, options = {} as Object) as Object
+  prototype.createAnimation = function (name as String, options = {} as Object) as Object
     parallelAnimationNode = ParallelAnimation()
     parallelAnimationNode.setFields({
       id: name,

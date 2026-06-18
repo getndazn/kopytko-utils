@@ -24,7 +24,7 @@ function promisesAny(promiseInstances as Object) as Object
     end if
   end sub
 
-  context.onPromiseRejected = sub (reason as Object, m as Object)
+  context.onPromiseRejected = sub (_reason as Object, m as Object)
     m.rejectedPromisesCount++
     if (m.rejectedPromisesCount = m.promises.count())
       promisesValues = []
