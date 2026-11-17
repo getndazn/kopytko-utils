@@ -1,0 +1,5 @@
+dazn-manifest: 4.0.0
+owner: kopytko@dazn.com
+services:
+  - name: kopytko-utils
+    description: Utilities for Roku client applications and framework
